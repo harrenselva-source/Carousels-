@@ -18,5 +18,11 @@
 - `caption.md`: draft caption (fill in time/place/link)
 - `carousel.html`: source; edit copy here
 - `render.js`: re-export with `node render.js` (needs Playwright)
+- `brand/`: Aram Initiative logo (original, transparent, and a white version for purple slides)
 
-The kolam thread along the bottom lines up across slide edges, so it reads as one continuous line when people swipe.
+**Brand:** colours are sampled from the Aram Initiative logo (purple `#5028FD`, orange `#FDA815`,
+sky `#82D1FF`, pink `#F70FB0`, green `#44FF60`). Type is Baloo Thambi 2 (rounded, with Tamil script),
+Caveat for handwritten notes, and Nunito for body text. Shapes are drawn by hand rather than with a
+ruler: blobs, squiggle underlines, tilted stickers, thought bubbles, the logo's three "sparkle"
+dashes, and the logo's arms-up figure. A wobbly thread along the bottom runs continuously from
+one slide into the next as people swipe.

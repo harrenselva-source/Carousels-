@@ -11,7 +11,7 @@ const fs = require("fs");
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1200, height: 1400 }, deviceScaleFactor: 1 });
   await page.goto("file://" + path.join(__dirname, "carousel.html"));
-  await page.evaluate(() => document.fonts.ready);
+  await page.waitForFunction(() => window.__ready === true);
 
   const slides = await page.$$(".slide");
   for (let i = 0; i < slides.length; i++) {
