@@ -18,6 +18,7 @@
 - `caption.md`: draft caption (fill in time/place/link)
 - `carousel.html`: source; edit copy here
 - `render.js`: re-export with `node render.js` (needs Playwright)
+- `aram-carousel.pdf` / `export-pdf.js`: all 8 slides as one PDF (re-export with `node export-pdf.js`)
 - `brand/`: Aram Initiative logo (original, transparent, and a white version for purple slides)
 
 **Brand:** colours are sampled from the Aram Initiative logo (purple `#5028FD`, orange `#FDA815`,
