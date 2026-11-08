@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Aram — What Is Tamil?</title>
+<style>
+  @font-face { font-family: "Fraunces"; src: url(fonts/fraunces.woff2) format("woff2"); font-weight: 100 900; font-style: normal; }
+  @font-face { font-family: "Fraunces"; src: url(fonts/fraunces-italic.woff2) format("woff2"); font-weight: 100 900; font-style: italic; }
+  @font-face { font-family: "Noto Serif Tamil"; src: url(fonts/noto-serif-tamil.woff2) format("woff2"); font-weight: 100 900; }
+  @font-face { font-family: "Space Grotesk"; src: url(fonts/space-grotesk.woff2) format("woff2"); font-weight: 300 700; }
+
+  :root {
+    --ink: #2a0d10;        /* deep kumkum maroon */
+    --ink-2: #4a1a1e;
+    --paper: #f5ecdc;      /* palm-leaf cream */
+    --paper-2: #ebdfc8;
+    --turmeric: #e8a317;
+    --vermilion: #c8361d;
+    --jasmine: #fffaf0;
+
+    --serif: "Fraunces", "Noto Serif Tamil", Georgia, serif;
+    --tamil: "Noto Serif Tamil", "Fraunces", serif;
+    --sans: "Space Grotesk", "Inter", system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #777; font-family: var(--serif); display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0; }
+
+  .slide {
+    position: relative;
+    width: 1080px; height: 1350px;
+    overflow: hidden;
+    padding: 96px 96px 0;
+    font-variation-settings: "SOFT" 50, "WONK" 0;
+  }
+  .dark  { background: var(--ink); color: var(--paper); }
+  .light { background: var(--paper); color: var(--ink); }
+  .gold  { background: var(--turmeric); color: var(--ink); }
+
+  /* ---------- shared chrome ---------- */
+  .chrome {
+    position: absolute; left: 96px; right: 96px; top: 64px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--sans); font-size: 26px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500;
+  }
+  .brand { display: flex; align-items: baseline; gap: 14px; }
+  .brand .ta { font-family: var(--tamil); text-transform: none; letter-spacing: 0; font-size: 30px; font-weight: 600; }
+  .count { opacity: .6; font-variant-numeric: tabular-nums; }
+
+  .kolam { position: absolute; left: 0; bottom: 70px; width: 1080px; height: 90px; }
+  .dark  .kolam { color: var(--turmeric); }
+  .light .kolam { color: var(--vermilion); }
+  .gold  .kolam { color: var(--ink); }
+
+  .kicker {
+    font-family: var(--sans); font-size: 30px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--vermilion);
+  }
+  .dark .kicker { color: var(--turmeric); }
+
+  .q {
+    font-weight: 400; font-size: 104px; line-height: 1.0; letter-spacing: -.02em;
+    font-variation-settings: "opsz" 144, "SOFT" 60, "WONK" 1;
+    margin-top: 24px;
+  }
+  .q em { font-style: italic; color: var(--vermilion); }
+  .dark .q em { color: var(--turmeric); }
+
+  .ta { font-family: var(--tamil); }
+
+  /* ---------- 01 hook ---------- */
+  .s1 .watermark {
+    position: absolute; right: -40px; bottom: 150px;
+    font-family: var(--tamil); font-weight: 800; font-size: 330px; line-height: 1;
+    color: var(--paper); opacity: .07; letter-spacing: -.02em;
+  }
+  .s1 .hook {
+    position: absolute; left: 96px; right: 96px; top: 300px;
+    font-weight: 350; font-size: 128px; line-height: .98; letter-spacing: -.025em;
+    font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+  }
+  .s1 .hook em { font-style: italic; color: var(--turmeric); font-weight: 400; }
+  .s1 .swipe {
+    position: absolute; right: 96px; bottom: 200px;
+    font-family: var(--sans); font-size: 28px; letter-spacing: .16em; text-transform: uppercase; font-weight: 500;
+    display: flex; align-items: center; gap: 18px; color: var(--turmeric);
+  }
+  .s1 .swipe svg { width: 64px; height: 24px; }
+
+  /* ---------- 02 words ---------- */
+  .words { margin-top: 70px; display: flex; flex-direction: column; gap: 24px; }
+  .word { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid rgba(42,13,16,.15); padding-bottom: 20px; gap: 24px; }
+  .word .ta { font-size: 60px; font-weight: 600; line-height: 1.25; }
+  .word .gloss { flex-shrink: 0; font-family: var(--sans); font-size: 30px; text-align: right; line-height: 1.3; }
+  .word .gloss b { display: block; font-weight: 600; }
+  .word .tick { color: var(--vermilion); font-weight: 700; }
+  .word.w3 { opacity: .42; }
+  .word.w4 { opacity: .16; filter: blur(3px); }
+
+  /* ---------- 03 past ---------- */
+  .timeline { position: relative; margin-top: 150px; height: 470px; }
+  .timeline .line { position: absolute; left: 0; right: 0; top: 200px; height: 4px; background: var(--ink); }
+  .timeline .gap {
+    position: absolute; left: 300px; width: 380px; top: 196px; height: 12px; background: var(--paper);
+    display: flex; justify-content: space-between; align-items: center; padding: 0 30px;
+  }
+  .timeline .gap i { width: 12px; height: 12px; border-radius: 50%; background: var(--ink); opacity: .3; display: block; }
+  .stop { position: absolute; top: 188px; width: 28px; height: 28px; border-radius: 50%; background: var(--ink); transform: translateX(-50%); }
+  .stop.now { background: var(--vermilion); width: 40px; height: 40px; top: 182px; box-shadow: 0 0 0 10px rgba(200,54,29,.18); }
+  .label { position: absolute; transform: translateX(-50%); text-align: center; font-family: var(--sans); font-size: 28px; line-height: 1.25; width: 260px; }
+  .label b { display: block; font-family: var(--serif); font-size: 40px; font-weight: 500; letter-spacing: -.01em; }
+  .label.up { top: 40px; }
+  .label.down { top: 260px; }
+  .qmark { position: absolute; left: 490px; top: 40px; transform: translateX(-50%); font-family: var(--serif); font-style: italic; font-size: 130px; line-height: 1; color: var(--vermilion); }
+
+  /* ---------- 04 places ---------- */
+  .places { margin-top: 80px; display: flex; flex-wrap: wrap; gap: 14px 30px; align-items: baseline; }
+  .places > span { font-size: 52px; line-height: 1.2; letter-spacing: -.01em; white-space: nowrap; }
+  .places > span:not(:last-child)::after { content: "·"; font-style: normal; font-weight: 300; color: var(--ink); opacity: .3; margin-left: 26px; }
+  .places .a { font-weight: 600; }
+  .places .b { font-style: italic; font-weight: 400; color: var(--vermilion); }
+  .places .c { font-weight: 300; opacity: .55; }
+    .aside { position: absolute; left: 96px; right: 96px; bottom: 210px; font-family: var(--sans); font-size: 32px; opacity: .75; }
+
+  /* ---------- 05 values ---------- */
+  .values { margin-top: 90px; display: flex; flex-direction: column; gap: 22px; }
+  .tag {
+    align-self: flex-start;
+    font-family: var(--sans); font-size: 40px; font-weight: 500;
+    padding: 20px 34px; border: 3px solid var(--ink); border-radius: 999px;
+  }
+  .tag:nth-child(2) { margin-left: 90px; }
+  .tag:nth-child(3) { margin-left: 30px; }
+  .tag.aram { background: var(--ink); color: var(--paper); border-color: var(--ink); margin-left: 140px; }
+  .tag.aram .ta { color: var(--turmeric); font-weight: 700; margin-right: 10px; }
+
+  /* ---------- 06 actors ---------- */
+  .ticket {
+    position: relative; margin: 90px auto 0; width: 820px; height: 500px;
+    background: var(--jasmine); color: var(--ink);
+    display: grid; grid-template-columns: 1fr 200px;
+    transform: rotate(-4deg);
+    box-shadow: 0 24px 0 rgba(42,13,16,.18);
+    border-radius: 18px;
+  }
+  .ticket::before, .ticket::after {
+    content: ""; position: absolute; left: 600px; width: 44px; height: 44px; border-radius: 50%;
+    background: var(--turmeric); transform: translateX(-50%);
+  }
+  .ticket::before { top: -22px; } .ticket::after { bottom: -22px; }
+  .ticket .main { padding: 44px 48px; border-right: 4px dashed rgba(42,13,16,.35); }
+  .ticket .tt { font-family: var(--sans); font-size: 26px; font-weight: 700; letter-spacing: .2em; color: var(--vermilion); }
+  .ticket .big { font-size: 74px; font-weight: 700; line-height: .95; letter-spacing: -.02em; margin: 14px 0 26px; font-variation-settings: "opsz" 144, "WONK" 1; }
+  .ticket dl { display: grid; grid-template-columns: 150px 1fr; row-gap: 8px; font-family: var(--sans); font-size: 28px; }
+  .ticket dt { opacity: .55; text-transform: uppercase; letter-spacing: .1em; font-size: 22px; padding-top: 5px; }
+  .ticket dd { font-weight: 500; }
+  .ticket .stub { display: flex; align-items: center; justify-content: center; }
+  .ticket .stub span { transform: rotate(90deg); white-space: nowrap; font-family: var(--sans); font-weight: 700; font-size: 30px; letter-spacing: .3em; }
+  .stars { position: absolute; color: var(--vermilion); }
+
+  /* ---------- 07 spoken ---------- */
+  .s7 .statement {
+    margin-top: 40px; font-size: 92px; line-height: 1.02; letter-spacing: -.02em; font-weight: 350;
+    font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+  }
+  .s7 .statement em { font-style: italic; color: var(--turmeric); }
+  .s7 .sub { margin-top: 44px; font-size: 46px; line-height: 1.2; font-weight: 300; opacity: .85; max-width: 820px; font-variation-settings: "opsz" 48; }
+  .s7 .sub em { font-style: italic; }
+  .pulli { overflow: visible; position: absolute; left: 96px; right: 96px; bottom: 210px; height: 300px; }
+
+  /* ---------- 08 cta ---------- */
+  .s8 .lines { margin-top: 60px; font-size: 62px; line-height: 1.15; letter-spacing: -.015em; font-weight: 400; font-variation-settings: "opsz" 96, "SOFT" 60; }
+  .s8 .lines em { font-style: italic; }
+  .s8 .lines .soft { opacity: .7; }
+  .s8 .join {
+    position: absolute; left: 96px; right: 96px; bottom: 230px;
+  }
+  .s8 .join .ta { font-size: 64px; font-weight: 700; color: var(--vermilion); display: block; margin-bottom: 4px; }
+  .s8 .join .big { font-size: 150px; line-height: .92; letter-spacing: -.035em; font-weight: 600; font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1; }
+  .s8 .join .big em { font-style: italic; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<!-- 01 — Hook -->
+<section class="slide dark s1" data-n="1">
+  <div class="watermark">தமிழ்?</div>
+  <h1 class="hook">Aren’t you just as <em>confused</em> about being Tamil as we are?</h1>
+  <div class="swipe">Swipe
+    <svg viewBox="0 0 64 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h58M48 2l12 10-12 10"/></svg>
+  </div>
+</section>
+
+<!-- 02 — Words -->
+<section class="slide light s2" data-n="2">
+  <div class="kicker">Is it…</div>
+  <h2 class="q">the <em>words</em> we can understand?</h2>
+  <div class="words">
+    <div class="word"><span class="ta">அம்மா</span><span class="gloss"><b>amma</b>mum <span class="tick">✓</span></span></div>
+    <div class="word"><span class="ta">சாப்பிட்டீங்களா?</span><span class="gloss"><b>saapteengala?</b>eaten yet? <span class="tick">✓</span></span></div>
+    <div class="word w3"><span class="ta">பண்பாடு</span><span class="gloss"><b>panpaadu</b>culture… right?</span></div>
+    <div class="word w4"><span class="ta">இலக்கியம்</span><span class="gloss"><b>ilakkiyam</b>no idea</span></div>
+  </div>
+</section>
+
+<!-- 03 — Past -->
+<section class="slide light s3" data-n="3">
+  <div class="kicker">Is it…</div>
+  <h2 class="q">what we know of our <em>past?</em></h2>
+  <div class="timeline">
+    <div class="line"></div>
+    <div class="gap"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="stop" style="left:60px"></div>
+    <div class="label up" style="left:110px"><b>Sangam poets</b>we think?</div>
+    <div class="stop" style="left:240px"></div>
+    <div class="label down" style="left:240px"><b>Chola kings</b>from school projects</div>
+    <div class="qmark">?</div>
+    <div class="stop" style="left:740px"></div>
+    <div class="label down" style="left:740px"><b>Grandparents’ stories</b>half-remembered</div>
+    <div class="stop now" style="left:870px"></div>
+    <div class="label up" style="left:840px"><b>Us</b>still piecing it together</div>
+  </div>
+</section>
+
+<!-- 04 — Places -->
+<section class="slide light s4" data-n="4">
+  <div class="kicker">Is it…</div>
+  <h2 class="q">where we <em>come from?</em></h2>
+  <div class="places">
+    <span class="a">Jaffna</span>
+    <span class="b">Chennai</span>
+    <span class="c">Batticaloa</span>
+    <span class="a">Madurai</span>
+    <span class="c">Trincomalee</span>
+    <span class="b">Kuala Lumpur</span>
+    <span class="a">Singapore</span>
+    <span class="c">Coimbatore</span>
+    <span class="b">Durban</span>
+    <span class="a">Toronto</span>
+    <span class="c">Mauritius</span>
+    <span class="a">London</span>
+    <span class="b">Paris</span>
+    <span class="c">Sydney</span>
+    <span class="a">Zurich</span>
+  </div>
+  <p class="aside">…and the answer usually depends on who’s asking.</p>
+</section>
+
+<!-- 05 — Values -->
+<section class="slide light s5" data-n="5">
+  <div class="kicker">Is it…</div>
+  <h2 class="q">the <em>values</em> we’ve inherited?</h2>
+  <div class="values">
+    <span class="tag">Respect your elders</span>
+    <span class="tag">Study hard. Then study harder.</span>
+    <span class="tag">Nobody leaves hungry</span>
+    <span class="tag aram"><span class="ta">அறம்</span> Do what’s right</span>
+  </div>
+</section>
+
+<!-- 06 — Actors -->
+<section class="slide gold s6" data-n="6">
+  <div class="kicker" style="color:var(--ink)">Or is it…</div>
+  <h2 class="q">our tendency to <em style="color:var(--jasmine)">worship actors?</em></h2>
+  <div class="ticket">
+    <div class="main">
+      <div class="tt">ADMIT ONE DEVOTEE</div>
+      <div class="big">First day,<br>first show.</div>
+      <dl>
+        <dt>Time</dt><dd>4:00 AM, obviously</dd>
+        <dt>Seat</dt><dd>Standing on it</dd>
+        <dt>Bring</dt><dd>Garland, whistle, milk</dd>
+      </dl>
+    </div>
+    <div class="stub"><span>★ FDFS ★</span></div>
+  </div>
+</section>
+
+<!-- 07 — We've spoken -->
+<section class="slide dark s7" data-n="7">
+  <div class="kicker">So we asked</div>
+  <h2 class="statement">We’ve spoken to Tamils <em>across the world</em> about it</h2>
+  <p class="sub">— and how our experiences shape our relationship with it.</p>
+  <svg class="pulli" id="pulli" viewBox="0 0 888 300" aria-hidden="true"></svg>
+</section>
+
+<!-- 08 — CTA -->
+<section class="slide light s8" data-n="8">
+  <div class="kicker">So let’s talk</div>
+  <p class="lines">
+    Some <em>deep</em> conversations.<br>
+    Some <em>light-hearted</em> ones.<br>
+    <span class="soft">All about what it means to be Tamil.</span>
+  </p>
+  <div class="join">
+    <span class="ta">ஞாயிறு</span>
+    <div class="big">Join us<br><em>this Sunday…</em></div>
+  </div>
+</section>
+
+<script>
+  const slides = [...document.querySelectorAll(".slide")];
+  const total = slides.length;
+  const NS = "http://www.w3.org/2000/svg";
+
+  // Kolam thread: dots (pulli) with two antiphase waves looping around them.
+  // Period 270px divides 1080 exactly, so the thread lines up across the seam
+  // between consecutive slides when swiped.
+  function kolam() {
+    const svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("class", "kolam");
+    svg.setAttribute("viewBox", "0 0 1080 90");
+    svg.setAttribute("aria-hidden", "true");
+    const wave = (phase) => {
+      let d = "";
+      for (let x = 0; x <= 1080; x += 4) {
+        const y = 45 + 28 * Math.cos((2 * Math.PI * (x - 67.5)) / 270 + phase);
+        d += (x ? "L" : "M") + x + " " + y.toFixed(2);
+      }
+      return d;
+    };
+    for (const ph of [0, Math.PI]) {
+      const p = document.createElementNS(NS, "path");
+      p.setAttribute("d", wave(ph));
+      p.setAttribute("fill", "none");
+      p.setAttribute("stroke", "currentColor");
+      p.setAttribute("stroke-width", "3");
+      p.setAttribute("opacity", ".55");
+      svg.appendChild(p);
+    }
+    for (let x = 67.5; x < 1080; x += 135) {
+      const c = document.createElementNS(NS, "circle");
+      c.setAttribute("cx", x); c.setAttribute("cy", 45); c.setAttribute("r", 6);
+      c.setAttribute("fill", "currentColor");
+      svg.appendChild(c);
+    }
+    return svg;
+  }
+
+  slides.forEach((s, i) => {
+    const chrome = document.createElement("div");
+    chrome.className = "chrome";
+    chrome.innerHTML =
+      `<span class="brand">Aram <span class="ta">அறம்</span></span>` +
+      `<span class="count">${String(i + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}</span>`;
+    s.prepend(chrome);
+    s.appendChild(kolam());
+    // push content below the chrome bar
+    const first = s.querySelector(".kicker");
+    if (first) first.style.marginTop = "110px";
+  });
+
+  // Slide 7: a pulli (dot) grid — voices from across the world, a few lit up.
+  (function () {
+    const svg = document.getElementById("pulli");
+    const lit = new Set(["1,3", "3,1", "4,5", "6,2", "8,4", "10,1", "11,3", "13,5", "14,2", "2,5", "7,0"]);
+    for (let r = 0; r < 6; r++) {
+      for (let c = 0; c < 15; c++) {
+        const on = lit.has(c + "," + r);
+        const el = document.createElementNS(NS, "circle");
+        el.setAttribute("cx", 14 + c * 61.4);
+        el.setAttribute("cy", 20 + r * 52);
+        el.setAttribute("r", on ? 13 : 5);
+        el.setAttribute("fill", on ? "#e8a317" : "#f5ecdc");
+        el.setAttribute("opacity", on ? 1 : .22);
+        svg.appendChild(el);
+        if (on) {
+          const halo = document.createElementNS(NS, "circle");
+          halo.setAttribute("cx", 14 + c * 61.4);
+          halo.setAttribute("cy", 20 + r * 52);
+          halo.setAttribute("r", 24);
+          halo.setAttribute("fill", "none");
+          halo.setAttribute("stroke", "#e8a317");
+          halo.setAttribute("stroke-width", 2);
+          halo.setAttribute("opacity", .4);
+          svg.appendChild(halo);
+        }
+      }
+    }
+  })();
+</script>
+</body>
+</html>
