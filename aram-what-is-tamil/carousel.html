@@ -6,24 +6,28 @@
 <style>
   @font-face { font-family: "Baloo Thambi 2"; src: url(fonts/baloo-thambi2-tamil.woff2) format("woff2"); font-weight: 400 800; unicode-range: U+0964-0965, U+0B82-0BFA, U+200C-200D, U+20B9, U+25CC; }
   @font-face { font-family: "Baloo Thambi 2"; src: url(fonts/baloo-thambi2-latin.woff2) format("woff2"); font-weight: 400 800; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-  @font-face { font-family: "Nunito"; src: url(fonts/nunito.woff2) format("woff2"); font-weight: 400 900; }
+  @font-face { font-family: "Poppins"; src: url(fonts/poppins-500.woff2) format("woff2"); font-weight: 400 500; }
+  @font-face { font-family: "Poppins"; src: url(fonts/poppins-600.woff2) format("woff2"); font-weight: 600 800; }
   @font-face { font-family: "Caveat"; src: url(fonts/caveat.woff2) format("woff2"); font-weight: 400 700; }
 
   :root {
-    /* sampled from the Aram Initiative logo */
-    --purple: #5028fd;
-    --purple-soft: #6b4bff;
-    --purple-ink: #2a128f;
-    --lav: #efeaff;
-    --lav-2: #ddd4ff;
-    --orange: #fda815;
-    --sky: #82d1ff;
-    --pink: #f70fb0;
-    --green: #44ff60;
+    /* colour scheme from aram.org.uk/members; dot colours from the Aram logo */
+    --purple: #1b1230;       /* night: dark slide background */
+    --purple-soft: #2b1f47;  /* panels and blobs on night */
+    --purple-ink: #1b1230;   /* dark text */
+    --plum: #5e3f8c;         /* brand plum: accents on cream */
+    --lav: #faf6ef;          /* warm cream: light slide background */
+    --lav-2: #efeaf7;        /* soft lavender: blobs and pills on cream */
+    --muted: #bfb3d6;        /* muted lavender text on night */
+    --orange: #f2b33d;       /* marigold gold: main accent */
+    --sky: #7db3e1;
+    --pink: #e43172;
+    --green: #29b789;
     --white: #ffffff;
+    --cream: #faf6ef;
 
-    --round: "Baloo Thambi 2", "Nunito", system-ui, sans-serif;
-    --body: "Nunito", system-ui, sans-serif;
+    --round: "Baloo Thambi 2", "Poppins", system-ui, sans-serif;
+    --body: "Poppins", system-ui, sans-serif;
     --hand: "Caveat", cursive;
   }
 
@@ -31,14 +35,14 @@
   body { background: #888; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0; font-family: var(--body); }
 
   .slide { position: relative; width: 1080px; height: 1350px; overflow: hidden; }
-  .purple { background: var(--purple); color: var(--white); }
-  .lav    { background: var(--lav);    color: var(--purple); }
+  .purple { background: var(--purple); color: var(--cream); }
+  .lav    { background: var(--lav);    color: var(--purple-ink); }
   .orange { background: var(--orange); color: var(--purple-ink); }
 
   .decor  { position: absolute; inset: 0; width: 1080px; height: 1350px; z-index: 0; overflow: visible; }
   .thread { position: absolute; left: 0; bottom: 58px; width: 1080px; height: 110px; z-index: 0; overflow: visible; }
-  .purple .thread { color: rgba(255,255,255,.55); }
-  .lav    .thread { color: var(--purple); }
+  .purple .thread { color: rgba(191,179,214,.55); }
+  .lav    .thread { color: var(--plum); }
   .orange .thread { color: var(--purple); }
   .content { position: absolute; inset: 0; z-index: 1; padding: 205px 96px 0; display: flex; flex-direction: column; align-items: flex-start; }
 
@@ -50,19 +54,19 @@
     padding: 14px 24px 10px; border-radius: 40px 34px 44px 30px / 34px 44px 30px 40px;
     transform: rotate(3deg);
   }
-  .purple .count { background: rgba(255,255,255,.16); }
-  .lav    .count { background: var(--lav-2); }
+  .purple .count { background: var(--purple-soft); color: var(--muted); }
+  .lav    .count { background: var(--lav-2); color: var(--plum); }
   .orange .count { background: rgba(255,255,255,.45); }
 
   .hand { font-family: var(--hand); font-weight: 700; }
-  .kicker { font-family: var(--hand); font-weight: 700; font-size: 64px; color: var(--pink); transform: rotate(-5deg); transform-origin: left; }
+  .kicker { font-family: var(--hand); font-weight: 700; font-size: 64px; color: var(--plum); transform: rotate(-5deg); transform-origin: left; }
   .purple .kicker { color: var(--orange); }
 
   .h {
     margin-top: 6px;
     font-family: var(--round); font-weight: 800; font-size: 104px; line-height: 1.0; letter-spacing: -.015em;
   }
-  .h .hl { color: var(--pink); }
+  .h .hl { color: var(--plum); }
   .purple .h .hl { color: var(--orange); }
   .ta { font-family: var(--round); }
 
@@ -72,9 +76,9 @@
   .wobble span { display: inline-block; }
   .s1 .tamil {
     position: absolute; left: 560px; top: 930px; transform: rotate(-9deg);
-    font-family: var(--round); font-weight: 800; font-size: 150px; line-height: 1; color: var(--white);
+    font-family: var(--round); font-weight: 800; font-size: 150px; line-height: 1; color: var(--cream);
   }
-  .s1 .swipe { position: absolute; left: 100px; top: 1050px; font-size: 64px; color: var(--sky); transform: rotate(-4deg); }
+  .s1 .swipe { position: absolute; left: 100px; top: 1050px; font-size: 64px; color: var(--muted); transform: rotate(-4deg); }
 
   /* ---------- 02 ---------- */
   .bubbles { align-self: stretch; margin-top: 60px; display: flex; flex-direction: column; gap: 40px; }
@@ -90,18 +94,18 @@
   .bubble::after  { width: 16px; height: 15px; bottom: -44px; left: 26px; }
   .row.r .bubble::before { left: auto; right: 40px; }
   .row.r .bubble::after  { left: auto; right: 26px; }
-  .note { font-family: var(--hand); font-weight: 700; font-size: 46px; line-height: 1.05; color: var(--purple); }
-  .note b { color: var(--pink); }
-  .b1 { background: var(--purple); color: var(--white); transform: rotate(-3deg); }
+  .note { font-family: var(--hand); font-weight: 700; font-size: 46px; line-height: 1.05; color: var(--plum); }
+  .note b { color: var(--green); }
+  .b1 { background: var(--purple); color: var(--cream); transform: rotate(-3deg); }
   .b2 { background: var(--orange); color: var(--purple-ink); transform: rotate(2.5deg); }
   .b3 { background: var(--sky); color: var(--purple-ink); transform: rotate(-2deg); }
   .row.f3 { opacity: .5; }
-  .b4 { background: var(--white); color: var(--purple); transform: rotate(3deg); }
+  .b4 { background: var(--white); color: var(--plum); transform: rotate(3deg); }
   .row.f4 { opacity: .28; filter: blur(2.5px); }
 
   /* ---------- 03 ---------- */
   .stop-label { position: absolute; font-family: var(--round); font-weight: 800; font-size: 44px; line-height: 1; }
-  .stop-label small { display: block; font-family: var(--hand); font-weight: 700; font-size: 40px; color: var(--sky); margin-top: 4px; }
+  .stop-label small { display: block; font-family: var(--hand); font-weight: 700; font-size: 40px; color: var(--muted); margin-top: 4px; }
   .qq { position: absolute; font-family: var(--hand); font-weight: 700; font-size: 80px; line-height: 1; color: var(--orange); transform: rotate(-4deg); white-space: nowrap; }
   .qq span { font-size: 42px; color: var(--lav-2); }
   .s3 .stop-label { white-space: nowrap; }
@@ -112,7 +116,7 @@
     font-family: var(--round); font-weight: 800; font-size: 44px; line-height: 1;
     padding: 22px 30px 12px;
     border-radius: 60px 44px 56px 40px / 44px 58px 40px 54px;
-    box-shadow: 0 7px 0 rgba(42,18,143,.18);
+    box-shadow: 0 7px 0 rgba(27,18,48,.14);
   }
   .s4 .aside { align-self: stretch; margin-top: 46px; text-align: center; font-family: var(--hand); font-weight: 700; font-size: 54px; transform: rotate(-2deg); }
 
@@ -120,45 +124,45 @@
   .tags { margin-top: 64px; display: flex; flex-direction: column; gap: 30px; align-items: flex-start; }
   .tag {
     font-family: var(--round); font-weight: 700; font-size: 50px; line-height: 1;
-    padding: 28px 44px 18px; background: var(--white); color: var(--purple);
+    padding: 28px 44px 18px; background: var(--cream); color: var(--purple-ink);
     border-radius: 80px 60px 76px 56px / 60px 80px 56px 76px;
-    box-shadow: 0 8px 0 rgba(20,6,90,.28);
+    box-shadow: 0 8px 0 rgba(0,0,0,.35);
   }
   .tag.t1 { transform: rotate(-3deg); }
   .tag.t2 { transform: rotate(2deg); margin-left: 110px; }
   .tag.t3 { transform: rotate(-1.5deg); margin-left: 40px; }
   .tag.aram { transform: rotate(3deg); margin-left: 180px; background: var(--orange); color: var(--purple-ink); font-size: 56px; }
-  .tag.aram .ta { color: var(--purple); font-weight: 800; margin-right: 12px; }
+  .tag.aram .ta { color: var(--plum); font-weight: 800; margin-right: 12px; }
 
   /* ---------- 06 ---------- */
   .s6 .kicker { color: var(--purple); }
-  .s6 .h .hl { color: var(--white); }
+  .s6 .h .hl { color: var(--plum); }
   .ticket {
     position: relative; margin: 70px 0 0 24px; width: 840px; height: 470px;
-    background: var(--white); color: var(--purple);
+    background: var(--cream); color: var(--purple-ink);
     display: grid; grid-template-columns: 1fr 190px;
     transform: rotate(-5deg);
     border-radius: 46px 30px 52px 34px / 34px 50px 30px 46px;
-    box-shadow: 0 14px 0 rgba(42,18,143,.22);
+    box-shadow: 0 14px 0 rgba(27,18,48,.18);
   }
   .ticket .main { padding: 44px 50px 30px; border-right: 6px dashed var(--lav-2); }
-  .ticket .tt { font-family: var(--hand); font-weight: 700; font-size: 46px; color: var(--pink); transform: rotate(-2deg); transform-origin: left; }
+  .ticket .tt { font-family: var(--hand); font-weight: 700; font-size: 46px; color: var(--plum); transform: rotate(-2deg); transform-origin: left; }
   .ticket .big { font-family: var(--round); font-weight: 800; font-size: 82px; line-height: .92; margin: 8px 0 22px; }
   .ticket dl { display: grid; grid-template-columns: 130px 1fr; row-gap: 6px; font-family: var(--body); font-size: 30px; font-weight: 700; color: var(--purple-ink); }
-  .ticket dt { font-family: var(--round); color: var(--purple); opacity: .55; font-size: 26px; padding-top: 4px; }
+  .ticket dt { font-family: var(--round); color: var(--plum); opacity: .55; font-size: 26px; padding-top: 4px; }
   .ticket .stub { display: flex; align-items: center; justify-content: center; }
-  .ticket .stub span { transform: rotate(90deg); white-space: nowrap; font-family: var(--round); font-weight: 800; font-size: 42px; letter-spacing: .12em; color: var(--purple); }
+  .ticket .stub span { transform: rotate(90deg); white-space: nowrap; font-family: var(--round); font-weight: 800; font-size: 42px; letter-spacing: .12em; color: var(--plum); }
 
   /* ---------- 07 ---------- */
   .s7 .h { font-size: 100px; line-height: 1.02; }
-  .s7 .sub { margin-top: 44px; max-width: 820px; font-family: var(--body); font-weight: 600; font-size: 46px; line-height: 1.3; color: var(--lav-2); }
+  .s7 .sub { margin-top: 44px; max-width: 820px; font-family: var(--body); font-weight: 600; font-size: 46px; line-height: 1.3; color: var(--muted); }
 
   /* ---------- 08 ---------- */
   .s8 .lines { margin-top: 18px; font-family: var(--round); font-weight: 700; font-size: 60px; line-height: 1.12; }
-  .s8 .lines .p { color: var(--pink); }
+  .s8 .lines .p { color: var(--plum); }
   .s8 .lines .o { color: var(--purple-ink); background: var(--orange); padding: 2px 16px 0; border-radius: 30px 22px 34px 20px / 22px 34px 20px 30px; display: inline-block; transform: rotate(-2deg); }
-  .s8 .lines .soft { color: var(--purple-soft); }
-  .s8 .sun { margin-top: 120px; font-family: var(--round); font-weight: 800; font-size: 76px; color: var(--pink); transform: rotate(-4deg); }
+  .s8 .lines .soft { color: #5b5368; }
+  .s8 .sun { margin-top: 120px; font-family: var(--round); font-weight: 800; font-size: 76px; color: var(--plum); transform: rotate(-4deg); }
   .s8 .join { margin-top: 0; font-family: var(--round); font-weight: 800; font-size: 150px; line-height: .9; letter-spacing: -.02em; }
   .s8 .biglogo { position: absolute; right: 80px; top: 700px; width: 300px; transform: rotate(6deg); z-index: 1; }
 </style>
@@ -279,8 +283,9 @@
 
 <script>
   const NS = "http://www.w3.org/2000/svg";
-  const C = { purple: "#5028fd", soft: "#6b4bff", ink: "#2a128f", lav: "#efeaff", lav2: "#ddd4ff",
-              orange: "#fda815", sky: "#82d1ff", pink: "#f70fb0", green: "#44ff60", white: "#ffffff" };
+  const C = { purple: "#1b1230", soft: "#2b1f47", ink: "#1b1230", lav: "#faf6ef", lav2: "#efeaf7",
+              plum: "#5e3f8c", muted: "#bfb3d6", cream: "#faf6ef",
+              orange: "#f2b33d", sky: "#7db3e1", pink: "#e43172", green: "#29b789", white: "#faf6ef" };
 
   // ---------- helpers: everything hand-made, nothing ruler-straight ----------
   function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
@@ -363,7 +368,7 @@
     const purpleish = s.classList.contains("purple");
     const logo = document.createElement("img");
     logo.className = "logo"; logo.alt = "Aram Initiative";
-    logo.src = purpleish ? "brand/aram-logo-white.png" : "brand/aram-logo.png";
+    logo.src = purpleish ? "brand/aram-logo-cream.png" : "brand/aram-logo.png";
     const count = document.createElement("div");
     count.className = "count"; count.textContent = `${i + 1}/${total}`;
     s.append(logo, count);
@@ -384,8 +389,8 @@
     blob(d, 760, 960, 300, C.soft, 7, { sx: 1.15 });
     blob(d, -40, 1150, 170, C.soft, 9, { o: .55 });
     rays(d, 840, 860, 18, 1.1, [C.pink, C.sky, C.green]);
-    underline(d, "#confused", C.pink, 5, { lift: 20 });
-    arrow(d, [[110, 1150], [250, 1185], [400, 1160], [520, 1180]], C.sky, 7);
+    underline(d, "#confused", C.muted, 5, { lift: 20 });
+    arrow(d, [[110, 1150], [250, 1185], [400, 1160], [520, 1180]], C.muted, 7);
     // "confused" — every letter a little off-balance
     const w = document.getElementById("confused"), R = rng(41);
     w.innerHTML = [...w.textContent].map(ch => `<span style="transform: translateY(${f((R() * 2 - 1) * 9)}px) rotate(${f((R() * 2 - 1) * 9)}deg)">${ch}</span>`).join("");
@@ -424,7 +429,7 @@
     blob(d, 1060, 230, 190, C.lav2, 31);
     blob(d, 20, 1080, 170, C.lav2, 32);
     const places = ["Jaffna", "Chennai", "Batticaloa", "Madurai", "Trincomalee", "Kuala Lumpur", "Singapore", "Coimbatore", "Durban", "Toronto", "Mauritius", "London", "Paris", "Sydney", "Zurich"];
-    const looks = [[C.purple, C.white], [C.orange, C.ink], [C.sky, C.ink], [C.pink, C.white], [C.white, C.purple], [C.green, C.ink]];
+    const looks = [[C.purple, C.cream], [C.orange, C.ink], [C.plum, C.cream], [C.lav2, C.plum], ["#ffffff", C.ink], [C.sky, C.ink], [C.green, C.ink]];
     const R = rng(77), box = document.getElementById("stickers");
     places.forEach((p, i) => {
       const [bg, fg] = looks[i % looks.length];
@@ -441,7 +446,7 @@
     const d = document.getElementById("d5");
     blob(d, 1070, 700, 260, C.soft, 51, { o: .6 });
     blob(d, -20, 1160, 160, C.soft, 52, { o: .5 });
-    underline(d, ".s5 .hl", C.pink, 53);
+    underline(d, ".s5 .hl", C.muted, 53);
     const t = rects(document.getElementById("aramtag"))[0];
     rays(d, t.r - 10, t.t + 6, 28, .6, [C.pink, C.sky, C.green]);
   })();
@@ -449,15 +454,15 @@
   // ---------- 06 ----------
   (() => {
     const d = document.getElementById("d6");
-    blob(d, 1040, 260, 200, "#ffbe45", 61);
-    blob(d, 60, 1180, 180, "#ffbe45", 62);
-    underline(d, ".s6 .hl", C.white, 63);
+    blob(d, 1040, 260, 200, "#f6c560", 61);
+    blob(d, 60, 1180, 180, "#f6c560", 62);
+    underline(d, ".s6 .hl", C.cream, 63);
     const tk = rects(document.querySelector(".ticket"))[0];
-    star(d, tk.r - 30, tk.t + 10, 34, C.pink, 12);
+    star(d, tk.r - 30, tk.t + 10, 34, C.plum, 12);
     star(d, tk.l + 20, tk.t + 30, 22, C.white, -8);
     star(d, tk.r - 10, tk.b + 30, 26, C.purple, 20);
     star(d, tk.l - 10, tk.b + 10, 18, C.sky, 0);
-    rays(d, tk.r - 30, tk.t - 40, 15, .7, [C.purple, C.white, C.pink]);
+    rays(d, tk.r - 30, tk.t - 40, 15, .7, [C.purple, C.cream, C.plum]);
   })();
 
   // ---------- 07 ----------
@@ -467,7 +472,7 @@
     underline(d, ".s7 .hl", C.orange, 72);
     const R = rng(73), cols = [C.orange, C.sky, C.pink, C.green, C.white];
     const spots = [[150, 900], [320, 1000], [480, 880], [630, 1030], [790, 905], [950, 1010], [240, 1110], [560, 1130], [870, 1120], [90, 1060], [1000, 860], [400, 820]];
-    spots.forEach(([x, y], i) => person(d, x, y, .62 + R() * .5, i % 3 === 0 ? C.white : C.lav2, (R() * 2 - 1) * 16, cols[i % cols.length]));
+    spots.forEach(([x, y], i) => person(d, x, y, .62 + R() * .5, i % 3 === 0 ? C.cream : C.muted, (R() * 2 - 1) * 16, cols[i % cols.length]));
   })();
 
   // ---------- 08 ----------

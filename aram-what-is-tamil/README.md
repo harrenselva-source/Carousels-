@@ -19,11 +19,13 @@
 - `carousel.html`: source; edit copy here
 - `render.js`: re-export with `node render.js` (needs Playwright)
 - `aram-carousel.pdf` / `export-pdf.js`: all 8 slides as one PDF (re-export with `node export-pdf.js`)
-- `brand/`: Aram Initiative logo (original, transparent, and a white version for purple slides)
+- `brand/`: Aram Initiative logos (site version, cream version for dark slides, and the original file you sent)
 
-**Brand:** colours are sampled from the Aram Initiative logo (purple `#5028FD`, orange `#FDA815`,
-sky `#82D1FF`, pink `#F70FB0`, green `#44FF60`). Type is Baloo Thambi 2 (rounded, with Tamil script),
-Caveat for handwritten notes, and Nunito for body text. Shapes are drawn by hand rather than with a
-ruler: blobs, squiggle underlines, tilted stickers, thought bubbles, the logo's three "sparkle"
-dashes, and the logo's arms-up figure. A wobbly thread along the bottom runs continuously from
-one slide into the next as people swipe.
+**Brand:** colours follow aram.org.uk/members: night `#1B1230` for dark slides, warm cream `#FAF6EF`
+for light slides, marigold gold `#F2B33D` as the main accent, plum `#5E3F8C` and soft lavender `#EFEAF7`.
+The logo's dot colours (sky `#7DB3E1`, pink `#E43172`, green `#29B789`) appear only as small details.
+The logo is the site's current version (`brand/aram-logo.png`, plus `aram-logo-cream.png` for dark slides).
+Type is Baloo Thambi 2 for headlines and Tamil, Poppins for body text (as on the site), and Caveat for
+handwritten notes. Shapes are drawn by hand rather than with a ruler: blobs, squiggle underlines, tilted
+stickers, thought bubbles, the logo's three "sparkle" dashes, and the logo's arms-up figure. A wobbly
+thread along the bottom runs continuously from one slide into the next as people swipe.
