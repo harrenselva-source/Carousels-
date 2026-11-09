@@ -1,4 +1,4 @@
-# Aram: "What does it mean to be Tamil?" carousel
+# Aram × Debatable: Tamil Identity Workshop carousel
 
 8 slides, 1080×1350 (Instagram portrait 4:5), ready to post from `slides/`.
 
@@ -11,7 +11,7 @@
 | 05 | …the values we've inherited? |
 | 06 | …our tendency to worship actors? |
 | 07 | We've spoken to Tamils across the world |
-| 08 | CTA: Join us this Sunday… |
+| 08 | CTA: Join us this Sunday… + Tamil Identity Workshop details (Sun 15 Nov, 1:00 PM, Sugar & Spice Lounge) |
 
 - `slides/aram-01.png` … `aram-08.png`: the exported slides
 - `preview.png`: contact sheet of all 8
@@ -19,7 +19,9 @@
 - `carousel.html`: source; edit copy here
 - `render.js`: re-export with `node render.js` (needs Playwright)
 - `aram-carousel.pdf` / `export-pdf.js`: all 8 slides as one PDF (re-export with `node export-pdf.js`)
-- `brand/`: Aram Initiative logos (site version, cream version for dark slides, and the original file you sent)
+- `brand/`: Aram Initiative logos (site version, cream version for dark slides, and the original file you sent);
+  Debatable wordmark (`debatable-wordmark-cream.png` / `-night.png`, lifted from their ad `debatable-ad.jpg`.
+  Swap in an official file for sharper output.)
 
 **Brand:** colours follow aram.org.uk/members: night `#1B1230` for dark slides, warm cream `#FAF6EF`
 for light slides, marigold gold `#F2B33D` as the main accent, plum `#5E3F8C` and soft lavender `#EFEAF7`.

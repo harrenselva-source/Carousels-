@@ -10,8 +10,14 @@ Our tendency to worship actors? 🎬
 
 We've spoken to Tamils across the world about it, and about how our experiences shape our relationship with it.
 
-This Sunday we're getting into it: some deep conversations, some light-hearted ones, all about what it means to be Tamil.
+Now we want to talk about it together. Aram Initiative × Debatable present the Tamil Identity Workshop: some deep conversations, some light-hearted ones, all about what it means to be Tamil.
 
-Join us this Sunday… [TIME] · [PLACE / LINK]
+📅 Sunday 15 November
+🕐 1:00 PM
+📍 Sugar & Spice Lounge
 
-#Aram #அறம் #EelamTamil #SriLankanTamil #TamilDiaspora #TamilIdentity #தமிழ்
+Join us this Sunday… [LINK / HOW TO SIGN UP]
+
+In collaboration with [@DEBATABLE HANDLE]
+
+#Aram #அறம் #Debatable #EelamTamil #SriLankanTamil #TamilDiaspora #TamilIdentity #தமிழ்
