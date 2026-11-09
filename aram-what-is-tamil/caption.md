@@ -14,4 +14,4 @@ This Sunday we're getting into it: some deep conversations, some light-hearted o
 
 Join us this Sunday… [TIME] · [PLACE / LINK]
 
-#Aram #அறம் #Tamil #TamilDiaspora #TamilIdentity #தமிழ்
+#Aram #அறம் #EelamTamil #SriLankanTamil #TamilDiaspora #TamilIdentity #தமிழ்
