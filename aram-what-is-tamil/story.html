@@ -59,73 +59,79 @@
 
   /* 1 */
   .f1 .kicker { margin-top: 90px; }
-  .f1 .h { margin-top: 18px; font-size: 132px; }
-  .wobble { display: inline-block; color: var(--orange); }
-  .wobble span { display: inline-block; }
-  .f1 .tamil { position: absolute; left: 520px; top: 1215px; transform: rotate(-9deg); font-family: var(--round); font-weight: 800; font-size: 170px; line-height: 1; color: var(--cream); }
-  .f1 .nudge { position: absolute; left: 96px; top: 1290px; font-size: 62px; line-height: 1.05; color: var(--muted); transform: rotate(-4deg); }
+  .f1 .h { margin-top: 16px; font-size: 128px; }
+  .zha { position: absolute; left: 380px; top: 660px; font-family: var(--round); font-weight: 800; font-size: 560px; line-height: 1; color: var(--orange); transform: rotate(-6deg); }
+  .f1 .wait { position: absolute; left: 96px; top: 900px; font-size: 74px; line-height: 1; color: var(--muted); transform: rotate(-8deg); }
+  .f1 .same { position: absolute; left: 96px; right: 96px; top: 1380px; font-family: var(--round); font-weight: 800; font-size: 76px; line-height: 1.05; }
+  .f1 .same span { display: block; margin-top: 14px; font-family: var(--body); font-weight: 500; font-size: 38px; line-height: 1.3; color: var(--muted); }
 
   /* 2 */
   .f2 .kicker { margin-top: 80px; }
-  .f2 .h { margin-top: 10px; }
-  .opts { align-self: stretch; margin-top: 56px; display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
-  .opt { font-family: var(--round); font-weight: 700; font-size: 50px; line-height: 1; padding: 26px 40px 16px; border-radius: 70px 52px 66px 48px / 52px 70px 48px 66px; box-shadow: 0 7px 0 rgba(27,18,48,.14); }
-  .f2 .ask { position: absolute; left: 0; right: 0; top: 1330px; text-align: center; font-size: 64px; color: var(--plum); transform: rotate(-3deg); }
+  .f2 .h { margin-top: 10px; font-size: 112px; }
+  .checks { align-self: stretch; margin-top: 46px; display: flex; flex-direction: column; gap: 26px; }
+  .check { display: flex; align-items: center; gap: 26px; }
+  .box { flex: 0 0 auto; width: 74px; height: 74px; position: relative; }
+  .box svg { position: absolute; inset: -14px; width: 102px; height: 102px; overflow: visible; }
+  .check p { font-family: var(--round); font-weight: 700; font-size: 44px; line-height: 1.08; }
+  .check p em { font-style: normal; color: var(--plum); }
+  .f2 .ask { position: absolute; left: 0; right: 0; top: 1395px; text-align: center; font-size: 64px; color: var(--plum); transform: rotate(-3deg); }
 
   /* 3 */
   .f3 .kicker { margin-top: 80px; color: var(--purple-ink); }
-  .f3 .sun { margin-top: 26px; font-family: var(--round); font-weight: 800; font-size: 76px; color: var(--plum); transform: rotate(-4deg); }
-  .f3 .join { font-family: var(--round); font-weight: 800; font-size: 150px; line-height: .9; letter-spacing: -.02em; }
-  .event { align-self: stretch; margin-top: 56px; padding: 40px 44px 36px; background: var(--purple); color: var(--cream);
+  .f3 .h.big { margin-top: 14px; font-size: 128px; line-height: .98; }
+  .f3 .h.big .hl { color: var(--cream); }
+  .f3 .h.med { margin-top: 26px; font-size: 76px; color: var(--plum); }
+  .event { align-self: stretch; margin-top: 50px; padding: 40px 44px 36px; background: var(--purple); color: var(--cream);
     border-radius: 60px 44px 64px 48px / 48px 64px 44px 60px; transform: rotate(-1.5deg); box-shadow: 0 12px 0 rgba(27,18,48,.2); }
   .event .name { font-family: var(--round); font-weight: 800; font-size: 64px; line-height: 1; }
   .event .name span { color: var(--orange); }
   .event .facts { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
   .event .facts b { font-family: var(--body); font-weight: 600; font-size: 34px; line-height: 1; padding: 16px 24px 13px; border-radius: 30px 24px 32px 22px / 24px 32px 22px 30px; background: var(--purple-soft); }
   .event .facts b.hl { background: var(--orange); color: var(--purple-ink); }
-  .f3 .ask { position: absolute; left: 0; right: 0; top: 1395px; text-align: center; font-size: 60px; color: var(--purple-ink); transform: rotate(-3deg); }
-
-  body { background: #888; display: flex; flex-direction: row; align-items: flex-start; gap: 40px; padding: 40px; font-family: var(--body); }
+  .f3 .promise { margin-top: 34px; align-self: center; font-size: 56px; color: var(--purple-ink); transform: rotate(-2deg); }
+  .f3 .ask { position: absolute; left: 0; right: 0; top: 1440px; text-align: center; font-size: 54px; color: var(--plum); transform: rotate(-3deg); }
 </style>
 </head>
 <body>
 
-<!-- Story 1: hook, points to the new post -->
+<!-- Story 1: the hook -->
 <section class="story night f1">
   <svg class="decor" id="d1"></svg>
   <div class="content">
     <div class="lockup"><img class="logo" src="brand/aram-logo-cream.png" alt="Aram Initiative"><span class="x">×</span><img class="deb" src="brand/debatable-wordmark-cream.png" alt="Debatable"></div>
-    <div class="kicker">New post!</div>
-    <h1 class="h">Aren’t you just as <span class="wobble" id="confused">confused</span> about being Tamil as we are?</h1>
-    <div class="tamil">தமிழ்?</div>
-    <div class="nudge hand">see the post<br>to find out</div>
+    <div class="kicker">Quick test…</div>
+    <h1 class="h">Say this <span class="hl">properly.</span></h1>
+    <div class="zha" id="zha">ழ</div>
+    <div class="wait hand">go on…<br>we’ll wait.</div>
+    <div class="same">Couldn’t? Same.<br><span>That’s exactly why we’re talking about it.</span></div>
   </div>
 </section>
 
-<!-- Story 2: the questions, with room for a poll / question sticker -->
+<!-- Story 2: the jokes, with room for a Question sticker -->
 <section class="story cream f2">
   <svg class="decor" id="d2"></svg>
   <div class="content">
     <div class="lockup"><img class="logo" src="brand/aram-logo.png" alt="Aram Initiative"><span class="x">×</span><img class="deb" src="brand/debatable-wordmark-night.png" alt="Debatable"></div>
-    <div class="kicker">So what makes you Tamil?</div>
-    <h2 class="h">Is it <span class="hl">…</span></h2>
-    <div class="opts" id="opts"></div>
-    <div class="ask hand">tell us below!</div>
+    <div class="kicker">Tick all that apply</div>
+    <h2 class="h">You might be <span class="hl">Tamil</span> if…</h2>
+    <div class="checks" id="checks"></div>
+    <div class="ask hand">add yours below!</div>
   </div>
 </section>
 
-<!-- Story 3: the event, with room for a link sticker -->
+<!-- Story 3: the event, with room for a Link sticker -->
 <section class="story gold f3">
   <svg class="decor" id="d3"></svg>
   <div class="content">
     <div class="lockup"><img class="logo" src="brand/aram-logo.png" alt="Aram Initiative"><span class="x">×</span><img class="deb" src="brand/debatable-wordmark-night.png" alt="Debatable"></div>
-    <div class="kicker">So let’s talk!</div>
-    <div class="sun">ஞாயிறு</div>
-    <div class="join">Join us this <span id="sunday">Sunday</span>…</div>
+    <div class="kicker">This Sunday</div>
+    <h2 class="h big">Bring your <span class="hl" id="crisis">identity crisis.</span></h2>
+    <div class="h med">We’ll bring the debate.</div>
     <div class="event">
       <div class="name">Tamil Identity <span>Workshop</span></div>
       <div class="facts"><b class="hl">Sun 15 November</b><b class="hl">1:00 PM</b><b>Sugar &amp; Spice Lounge</b></div>
     </div>
+    <div class="promise hand">No ழ test at the door. Promise.</div>
     <div class="ask hand">grab your spot below</div>
   </div>
 </section>
@@ -221,46 +227,57 @@
   (() => {
     const d = document.getElementById("d1");
     blob(d, 1060, 200, 260, C.soft, 3, { o: .7 });
-    blob(d, 760, 1290, 320, C.soft, 7, { sx: 1.15 });
+    blob(d, 640, 1000, 360, C.soft, 7, { sx: 1.1 });
     blob(d, -40, 1700, 180, C.soft, 9, { o: .55 });
-    rays(d, 860, 1170, 18, 1.15, [C.pink, C.sky, C.green]);
-    const w = document.getElementById("confused"), R = rng(41);
-    w.innerHTML = [...w.textContent].map(ch => `<span style="transform: translateY(${f((R() * 2 - 1) * 9)}px) rotate(${f((R() * 2 - 1) * 9)}deg)">${ch}</span>`).join("");
-    underline(d, "#confused", C.muted, 5, { lift: 22 });
-    arrow(d, [[120, 1450], [230, 1500], [380, 1470], [500, 1500]], C.muted, 7);
+    const z = rects(document.getElementById("zha"))[0];
+    rays(d, z.r - 60, z.t + 130, 22, 1.2, [C.pink, C.sky, C.green]);
+    underline(d, ".f1 .hl", C.muted, 5);
+    // a little "thinking" clock doodle by "we'll wait"
+    const w = rects(document.querySelector(".f1 .wait"))[0];
+    scribbleRing(d, w.l + 90, w.b + 90, 56, 56, C.muted, 15, 6);
+    el(d, "path", { d: `M${w.l + 90},${w.b + 90} L${w.l + 90},${w.b + 56} M${w.l + 90},${w.b + 90} L${w.l + 116},${w.b + 104}`, fill: "none", stroke: C.muted, "stroke-width": 6, "stroke-linecap": "round" });
   })();
 
   // 2
   (() => {
     const d = document.getElementById("d2");
     blob(d, 1050, 420, 220, C.lav2, 12);
-    blob(d, 20, 1500, 170, C.lav2, 13);
-    const opts = ["the words we understand?", "what we know of our past?", "where we come from?", "the values we’ve inherited?", "worshipping actors?"];
-    const looks = [[C.purple, C.cream], [C.orange, C.ink], [C.plum, C.cream], ["#ffffff", C.ink], [C.sky, C.ink]];
-    const R = rng(77), box = document.getElementById("opts");
-    opts.forEach((o, i) => {
-      const s = document.createElement("span"); s.className = "opt"; s.textContent = o;
-      s.style.cssText = `background:${looks[i][0]};color:${looks[i][1]};transform:rotate(${f((R() * 2 - 1) * 3.5)}deg);margin-left:${[0, 70, 20, 110, 40][i]}px`;
-      box.appendChild(s);
+    blob(d, 20, 1520, 170, C.lav2, 13);
+    const items = [
+      "You understand Amma’s scolding <em>perfectly</em>… and reply in English",
+      "“Did you eat?” is how your family says <em>I love you</em>",
+      "Every function has 200 uncles you’ve <em>never met</em>",
+      "You’d defend your favourite actor <em>in court</em>",
+      "“Where are you from?” takes you <em>45 minutes</em>",
+    ];
+    const R = rng(91), box = document.getElementById("checks");
+    items.forEach((t, i) => {
+      const row = document.createElement("div"); row.className = "check";
+      row.style.transform = `rotate(${f((R() * 2 - 1) * 1.2)}deg)`;
+      row.innerHTML = `<div class="box"><svg viewBox="-14 -14 102 102"></svg></div><p>${t}</p>`;
+      box.appendChild(row);
+      const sv = row.querySelector("svg");
+      // wobbly hand-drawn box + a scribbled tick
+      const bp = [[0, 2], [37, -2], [74, 1], [72, 38], [75, 74], [36, 72], [1, 75], [-2, 37]].map(([x, y]) => [x + (R() - .5) * 4, y + (R() - .5) * 4]);
+      el(sv, "path", { d: smooth(bp, true), fill: "#ffffff", stroke: C.ink, "stroke-width": 5, "stroke-linejoin": "round" });
+      el(sv, "path", { d: smooth([[10, 38], [26, 56], [34, 62], [52, 30], [86, -6]]), fill: "none", stroke: [C.plum, C.pink, C.green, C.orange, C.sky][i], "stroke-width": 11, "stroke-linecap": "round", "stroke-linejoin": "round" });
     });
-    const h = rects(document.querySelector(".f2 .h"))[0];
-    rays(d, h.r - 40, h.t + 40, 20, .7, [C.orange, C.sky, C.green]);
+    underline(d, ".f2 .hl", C.orange, 8);
     const a = rects(document.querySelector(".f2 .ask"))[0];
-    arrow(d, [[a.l + 640, a.b - 4], [a.l + 700, a.b + 50], [a.l + 690, a.b + 120]], C.plum, 7);
+    arrow(d, [[a.l + 650, a.b - 4], [a.l + 710, a.b + 50], [a.l + 700, a.b + 115]], C.plum, 7);
   })();
 
   // 3
   (() => {
     const d = document.getElementById("d3");
     blob(d, 1040, 380, 230, "#f6c560", 61);
-    blob(d, 60, 1620, 200, "#f6c560", 62);
-    const sd = rects(document.getElementById("sunday"))[0];
-    scribbleRing(d, (sd.l + sd.r) / 2 + 20, (sd.t + sd.b) / 2 + 14, (sd.r - sd.l) / 2 + 60, (sd.b - sd.t) * .34, C.cream, 84, 8);
-    const sn = rects(document.querySelector(".f3 .sun"))[0];
-    rays(d, sn.r + 30, sn.t + 46, 30, .7, [C.purple, C.cream, C.plum]);
-    star(d, 950, 1250, 30, C.purple, 12); star(d, 140, 1290, 22, C.cream, -8);
+    blob(d, 60, 1640, 200, "#f6c560", 62);
+    underline(d, "#crisis", C.cream, 63);
+    const h = rects(document.querySelector(".f3 .h.med"))[0];
+    rays(d, h.r + 40, h.t + 40, 30, .7, [C.purple, C.cream, C.plum]);
+    star(d, 960, 300, 30, C.purple, 12); star(d, 980, 1420, 22, C.cream, -8);
     const a = rects(document.querySelector(".f3 .ask"))[0];
-    arrow(d, [[a.l + 700, a.b - 6], [a.l + 760, a.b + 40], [a.l + 750, a.b + 110]], C.purple, 7);
+    arrow(d, [[a.l + 660, a.b - 6], [a.l + 720, a.b + 40], [a.l + 712, a.b + 100]], C.plum, 7);
   })();
   window.__ready = true;
   });
