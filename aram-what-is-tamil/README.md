@@ -32,6 +32,8 @@
 
 **Brand:** colours follow aram.org.uk/members: night `#1B1230` for dark slides, warm cream `#FAF6EF`
 for light slides, marigold gold `#F2B33D` as the main accent, plum `#5E3F8C` and soft lavender `#EFEAF7`.
+Debatable's maroon `#580612` (from their poster) marks the collaboration: their wordmark sits on a maroon
+sticker on every slide, slide 7 and the event card are maroon, and the Story's event frame is maroon.
 The logo's dot colours (sky `#7DB3E1`, pink `#E43172`, green `#29B789`) appear only as small details.
 The logo is the site's current version (`brand/aram-logo.png`, plus `aram-logo-cream.png` for dark slides).
 Type is Baloo Thambi 2 for headlines and Tamil, Poppins for body text (as on the site), and Caveat for

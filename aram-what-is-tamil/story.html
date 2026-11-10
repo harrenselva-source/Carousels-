@@ -25,6 +25,8 @@
     --green: #29b789;
     --white: #ffffff;
     --cream: #faf6ef;
+    --deb: #580612;          /* Debatable maroon, from their poster */
+    --deb-soft: #6f1424;
 
     --round: "Baloo Thambi 2", "Poppins", system-ui, sans-serif;
     --body: "Poppins", system-ui, sans-serif;
@@ -49,7 +51,12 @@
   .lockup { display: flex; align-items: center; gap: 18px; }
   .lockup .logo { height: 100px; }
   .lockup .x { font-family: var(--round); font-weight: 700; font-size: 36px; opacity: .55; margin-top: 6px; }
-  .lockup .deb { height: 32px; margin-top: 8px; }
+  .lockup .deb { height: 30px; }
+  .debpill { display: inline-flex; align-items: center; background: var(--deb); padding: 13px 18px 11px; border-radius: 22px 16px 24px 14px / 16px 24px 14px 22px; transform: rotate(-3deg); box-shadow: 0 5px 0 rgba(0,0,0,.18); }
+  .debpill img { display: block; }
+  .debbg { background: var(--deb) !important; color: var(--cream); }
+  .debbg .debpill { background: var(--cream); }
+  .debbg .thread { color: rgba(250,246,239,.45); }
   .kicker { font-family: var(--hand); font-weight: 700; font-size: 72px; line-height: 1; color: var(--plum); transform: rotate(-5deg); transform-origin: left; }
   .night .kicker { color: var(--orange); }
   .h { font-family: var(--round); font-weight: 800; font-size: 120px; line-height: 1.0; letter-spacing: -.015em; }
@@ -77,10 +84,13 @@
   .f2 .ask { position: absolute; left: 0; right: 0; top: 1395px; text-align: center; font-size: 64px; color: var(--plum); transform: rotate(-3deg); }
 
   /* 3 */
-  .f3 .kicker { margin-top: 80px; color: var(--purple-ink); }
+  .f3 .kicker { margin-top: 80px; color: var(--orange); }
   .f3 .h.big { margin-top: 14px; font-size: 128px; line-height: .98; }
-  .f3 .h.big .hl { color: var(--cream); }
-  .f3 .h.med { margin-top: 26px; font-size: 76px; color: var(--plum); }
+  .f3 .h.big .hl { color: var(--orange); }
+  .f3 .h.med { margin-top: 26px; font-size: 76px; color: var(--cream); }
+  .f3 .event { background: var(--cream); color: var(--purple-ink); box-shadow: 0 12px 0 rgba(0,0,0,.25); }
+  .f3 .event .name span { color: var(--deb); }
+  .f3 .event .facts b { background: var(--lav-2); }
   .event { align-self: stretch; margin-top: 50px; padding: 40px 44px 36px; background: var(--purple); color: var(--cream);
     border-radius: 60px 44px 64px 48px / 48px 64px 44px 60px; transform: rotate(-1.5deg); box-shadow: 0 12px 0 rgba(27,18,48,.2); }
   .event .name { font-family: var(--round); font-weight: 800; font-size: 64px; line-height: 1; }
@@ -88,8 +98,8 @@
   .event .facts { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
   .event .facts b { font-family: var(--body); font-weight: 600; font-size: 34px; line-height: 1; padding: 16px 24px 13px; border-radius: 30px 24px 32px 22px / 24px 32px 22px 30px; background: var(--purple-soft); }
   .event .facts b.hl { background: var(--orange); color: var(--purple-ink); }
-  .f3 .promise { margin-top: 34px; align-self: center; font-size: 56px; color: var(--purple-ink); transform: rotate(-2deg); }
-  .f3 .ask { position: absolute; left: 0; right: 0; top: 1440px; text-align: center; font-size: 54px; color: var(--plum); transform: rotate(-3deg); }
+  .f3 .promise { margin-top: 34px; align-self: center; font-size: 56px; color: var(--cream); transform: rotate(-2deg); }
+  .f3 .ask { position: absolute; left: 0; right: 0; top: 1440px; text-align: center; font-size: 54px; color: #e6c9cc; transform: rotate(-3deg); }
 </style>
 </head>
 <body>
@@ -98,7 +108,7 @@
 <section class="story night f1">
   <svg class="decor" id="d1"></svg>
   <div class="content">
-    <div class="lockup"><img class="logo" src="brand/aram-logo-cream.png" alt="Aram Initiative"><span class="x">×</span><img class="deb" src="brand/debatable-wordmark-cream.png" alt="Debatable"></div>
+    <div class="lockup"><img class="logo" src="brand/aram-logo-cream.png" alt="Aram Initiative"><span class="x">×</span><span class="debpill"><img class="deb" src="brand/debatable-wordmark-cream.png" alt="Debatable"></span></div>
     <div class="kicker">Quick test…</div>
     <h1 class="h">Say this <span class="hl">properly.</span></h1>
     <div class="zha" id="zha">ழ</div>
@@ -111,7 +121,7 @@
 <section class="story cream f2">
   <svg class="decor" id="d2"></svg>
   <div class="content">
-    <div class="lockup"><img class="logo" src="brand/aram-logo.png" alt="Aram Initiative"><span class="x">×</span><img class="deb" src="brand/debatable-wordmark-night.png" alt="Debatable"></div>
+    <div class="lockup"><img class="logo" src="brand/aram-logo.png" alt="Aram Initiative"><span class="x">×</span><span class="debpill"><img class="deb" src="brand/debatable-wordmark-cream.png" alt="Debatable"></span></div>
     <div class="kicker">Tick all that apply</div>
     <h2 class="h">You might be <span class="hl">Tamil</span> if…</h2>
     <div class="checks" id="checks"></div>
@@ -120,10 +130,10 @@
 </section>
 
 <!-- Story 3: the event, with room for a Link sticker -->
-<section class="story gold f3">
+<section class="story night debbg f3">
   <svg class="decor" id="d3"></svg>
   <div class="content">
-    <div class="lockup"><img class="logo" src="brand/aram-logo.png" alt="Aram Initiative"><span class="x">×</span><img class="deb" src="brand/debatable-wordmark-night.png" alt="Debatable"></div>
+    <div class="lockup"><img class="logo" src="brand/aram-logo-cream.png" alt="Aram Initiative"><span class="x">×</span><span class="debpill"><img class="deb" src="brand/debatable-wordmark-maroon.png" alt="Debatable"></span></div>
     <div class="kicker">This Sunday</div>
     <h2 class="h big">Bring your <span class="hl" id="crisis">identity crisis.</span></h2>
     <div class="h med">We’ll bring the debate.</div>
@@ -140,7 +150,7 @@
   const NS = "http://www.w3.org/2000/svg";
   const C = { purple: "#1b1230", soft: "#2b1f47", ink: "#1b1230", lav: "#faf6ef", lav2: "#efeaf7",
               plum: "#5e3f8c", muted: "#bfb3d6", cream: "#faf6ef",
-              orange: "#f2b33d", sky: "#7db3e1", pink: "#e43172", green: "#29b789", white: "#faf6ef" };
+              orange: "#f2b33d", sky: "#7db3e1", pink: "#e43172", green: "#29b789", white: "#faf6ef", deb: "#580612", debSoft: "#6f1424" };
 
   // ---------- helpers: everything hand-made, nothing ruler-straight ----------
   function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
@@ -270,14 +280,14 @@
   // 3
   (() => {
     const d = document.getElementById("d3");
-    blob(d, 1040, 380, 230, "#f6c560", 61);
-    blob(d, 60, 1640, 200, "#f6c560", 62);
+    blob(d, 1040, 380, 230, C.debSoft, 61);
+    blob(d, 60, 1640, 200, C.debSoft, 62);
     underline(d, "#crisis", C.cream, 63);
     const h = rects(document.querySelector(".f3 .h.med"))[0];
-    rays(d, h.r + 40, h.t + 40, 30, .7, [C.purple, C.cream, C.plum]);
-    star(d, 960, 300, 30, C.purple, 12); star(d, 980, 1420, 22, C.cream, -8);
+    rays(d, h.r + 40, h.t + 40, 30, .7, [C.orange, C.cream, C.pink]);
+    star(d, 960, 300, 30, C.orange, 12); star(d, 980, 1420, 22, C.cream, -8);
     const a = rects(document.querySelector(".f3 .ask"))[0];
-    arrow(d, [[a.l + 660, a.b - 6], [a.l + 720, a.b + 40], [a.l + 712, a.b + 100]], C.plum, 7);
+    arrow(d, [[a.l + 660, a.b - 6], [a.l + 720, a.b + 40], [a.l + 712, a.b + 100]], "#e6c9cc", 7);
   })();
   window.__ready = true;
   });
