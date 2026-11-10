@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Aram Story</title>
+<style>
+  @font-face { font-family: "Baloo Thambi 2"; src: url(fonts/baloo-thambi2-tamil.woff2) format("woff2"); font-weight: 400 800; unicode-range: U+0964-0965, U+0B82-0BFA, U+200C-200D, U+20B9, U+25CC; }
+  @font-face { font-family: "Baloo Thambi 2"; src: url(fonts/baloo-thambi2-latin.woff2) format("woff2"); font-weight: 400 800; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Poppins"; src: url(fonts/poppins-500.woff2) format("woff2"); font-weight: 400 500; }
+  @font-face { font-family: "Poppins"; src: url(fonts/poppins-600.woff2) format("woff2"); font-weight: 600 800; }
+  @font-face { font-family: "Caveat"; src: url(fonts/caveat.woff2) format("woff2"); font-weight: 400 700; }
+
+  :root {
+    /* colour scheme from aram.org.uk/members; dot colours from the Aram logo */
+    --purple: #1b1230;       /* night: dark slide background */
+    --purple-soft: #2b1f47;  /* panels and blobs on night */
+    --purple-ink: #1b1230;   /* dark text */
+    --plum: #5e3f8c;         /* brand plum: accents on cream */
+    --lav: #faf6ef;          /* warm cream: light slide background */
+    --lav-2: #efeaf7;        /* soft lavender: blobs and pills on cream */
+    --muted: #bfb3d6;        /* muted lavender text on night */
+    --orange: #f2b33d;       /* marigold gold: main accent */
+    --sky: #7db3e1;
+    --pink: #e43172;
+    --green: #29b789;
+    --white: #ffffff;
+    --cream: #faf6ef;
+
+    --round: "Baloo Thambi 2", "Poppins", system-ui, sans-serif;
+    --body: "Poppins", system-ui, sans-serif;
+    --hand: "Caveat", cursive;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #888; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0; font-family: var(--body); }
+
+
+  .story { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+  .night { background: var(--purple); color: var(--cream); }
+  .cream { background: var(--lav); color: var(--purple-ink); }
+  .gold  { background: var(--orange); color: var(--purple-ink); }
+  .decor { position: absolute; inset: 0; width: 1080px; height: 1920px; z-index: 0; overflow: visible; }
+  .thread { position: absolute; left: 0; top: 1560px; width: 1080px; height: 110px; z-index: 0; overflow: visible; }
+  .night .thread { color: rgba(191,179,214,.55); }
+  .cream .thread { color: var(--plum); }
+  .gold  .thread { color: var(--purple); }
+  /* Instagram covers roughly the top 250px and bottom 340px with its own UI: keep content between */
+  .content { position: absolute; inset: 0; z-index: 1; padding: 270px 90px 0; display: flex; flex-direction: column; align-items: flex-start; }
+  .lockup { display: flex; align-items: center; gap: 18px; }
+  .lockup .logo { height: 100px; }
+  .lockup .x { font-family: var(--round); font-weight: 700; font-size: 36px; opacity: .55; margin-top: 6px; }
+  .lockup .deb { height: 32px; margin-top: 8px; }
+  .kicker { font-family: var(--hand); font-weight: 700; font-size: 72px; line-height: 1; color: var(--plum); transform: rotate(-5deg); transform-origin: left; }
+  .night .kicker { color: var(--orange); }
+  .h { font-family: var(--round); font-weight: 800; font-size: 120px; line-height: 1.0; letter-spacing: -.015em; }
+  .h .hl { color: var(--plum); }
+  .night .h .hl { color: var(--orange); }
+  .hand { font-family: var(--hand); font-weight: 700; }
+
+  /* 1 */
+  .f1 .kicker { margin-top: 90px; }
+  .f1 .h { margin-top: 18px; font-size: 132px; }
+  .wobble { display: inline-block; color: var(--orange); }
+  .wobble span { display: inline-block; }
+  .f1 .tamil { position: absolute; left: 520px; top: 1215px; transform: rotate(-9deg); font-family: var(--round); font-weight: 800; font-size: 170px; line-height: 1; color: var(--cream); }
+  .f1 .nudge { position: absolute; left: 96px; top: 1290px; font-size: 62px; line-height: 1.05; color: var(--muted); transform: rotate(-4deg); }
+
+  /* 2 */
+  .f2 .kicker { margin-top: 80px; }
+  .f2 .h { margin-top: 10px; }
+  .opts { align-self: stretch; margin-top: 56px; display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
+  .opt { font-family: var(--round); font-weight: 700; font-size: 50px; line-height: 1; padding: 26px 40px 16px; border-radius: 70px 52px 66px 48px / 52px 70px 48px 66px; box-shadow: 0 7px 0 rgba(27,18,48,.14); }
+  .f2 .ask { position: absolute; left: 0; right: 0; top: 1330px; text-align: center; font-size: 64px; color: var(--plum); transform: rotate(-3deg); }
+
+  /* 3 */
+  .f3 .kicker { margin-top: 80px; color: var(--purple-ink); }
+  .f3 .sun { margin-top: 26px; font-family: var(--round); font-weight: 800; font-size: 76px; color: var(--plum); transform: rotate(-4deg); }
+  .f3 .join { font-family: var(--round); font-weight: 800; font-size: 150px; line-height: .9; letter-spacing: -.02em; }
+  .event { align-self: stretch; margin-top: 56px; padding: 40px 44px 36px; background: var(--purple); color: var(--cream);
+    border-radius: 60px 44px 64px 48px / 48px 64px 44px 60px; transform: rotate(-1.5deg); box-shadow: 0 12px 0 rgba(27,18,48,.2); }
+  .event .name { font-family: var(--round); font-weight: 800; font-size: 64px; line-height: 1; }
+  .event .name span { color: var(--orange); }
+  .event .facts { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
+  .event .facts b { font-family: var(--body); font-weight: 600; font-size: 34px; line-height: 1; padding: 16px 24px 13px; border-radius: 30px 24px 32px 22px / 24px 32px 22px 30px; background: var(--purple-soft); }
+  .event .facts b.hl { background: var(--orange); color: var(--purple-ink); }
+  .f3 .ask { position: absolute; left: 0; right: 0; top: 1395px; text-align: center; font-size: 60px; color: var(--purple-ink); transform: rotate(-3deg); }
+
+  body { background: #888; display: flex; flex-direction: row; align-items: flex-start; gap: 40px; padding: 40px; font-family: var(--body); }
+</style>
+</head>
+<body>
+
+<!-- Story 1: hook, points to the new post -->
+<section class="story night f1">
+  <svg class="decor" id="d1"></svg>
+  <div class="content">
+    <div class="lockup"><img class="logo" src="brand/aram-logo-cream.png" alt="Aram Initiative"><span class="x">×</span><img class="deb" src="brand/debatable-wordmark-cream.png" alt="Debatable"></div>
+    <div class="kicker">New post!</div>
+    <h1 class="h">Aren’t you just as <span class="wobble" id="confused">confused</span> about being Tamil as we are?</h1>
+    <div class="tamil">தமிழ்?</div>
+    <div class="nudge hand">see the post<br>to find out</div>
+  </div>
+</section>
+
+<!-- Story 2: the questions, with room for a poll / question sticker -->
+<section class="story cream f2">
+  <svg class="decor" id="d2"></svg>
+  <div class="content">
+    <div class="lockup"><img class="logo" src="brand/aram-logo.png" alt="Aram Initiative"><span class="x">×</span><img class="deb" src="brand/debatable-wordmark-night.png" alt="Debatable"></div>
+    <div class="kicker">So what makes you Tamil?</div>
+    <h2 class="h">Is it <span class="hl">…</span></h2>
+    <div class="opts" id="opts"></div>
+    <div class="ask hand">tell us below!</div>
+  </div>
+</section>
+
+<!-- Story 3: the event, with room for a link sticker -->
+<section class="story gold f3">
+  <svg class="decor" id="d3"></svg>
+  <div class="content">
+    <div class="lockup"><img class="logo" src="brand/aram-logo.png" alt="Aram Initiative"><span class="x">×</span><img class="deb" src="brand/debatable-wordmark-night.png" alt="Debatable"></div>
+    <div class="kicker">So let’s talk!</div>
+    <div class="sun">ஞாயிறு</div>
+    <div class="join">Join us this <span id="sunday">Sunday</span>…</div>
+    <div class="event">
+      <div class="name">Tamil Identity <span>Workshop</span></div>
+      <div class="facts"><b class="hl">Sun 15 November</b><b class="hl">1:00 PM</b><b>Sugar &amp; Spice Lounge</b></div>
+    </div>
+    <div class="ask hand">grab your spot below</div>
+  </div>
+</section>
+
+<script>
+  const NS = "http://www.w3.org/2000/svg";
+  const C = { purple: "#1b1230", soft: "#2b1f47", ink: "#1b1230", lav: "#faf6ef", lav2: "#efeaf7",
+              plum: "#5e3f8c", muted: "#bfb3d6", cream: "#faf6ef",
+              orange: "#f2b33d", sky: "#7db3e1", pink: "#e43172", green: "#29b789", white: "#faf6ef" };
+
+  // ---------- helpers: everything hand-made, nothing ruler-straight ----------
+  function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  const f = (n) => n.toFixed(1);
+  function smooth(pts, closed) {             // Catmull-Rom through points -> cubic Béziers
+    const n = pts.length, get = (i) => closed ? pts[(i + n) % n] : pts[Math.max(0, Math.min(n - 1, i))];
+    let d = `M${f(pts[0][0])},${f(pts[0][1])}`;
+    for (let i = 0; i < (closed ? n : n - 1); i++) {
+      const p0 = get(i - 1), p1 = get(i), p2 = get(i + 1), p3 = get(i + 2);
+      d += `C${f(p1[0] + (p2[0] - p0[0]) / 6)},${f(p1[1] + (p2[1] - p0[1]) / 6)} ${f(p2[0] - (p3[0] - p1[0]) / 6)},${f(p2[1] - (p3[1] - p1[1]) / 6)} ${f(p2[0])},${f(p2[1])}`;
+    }
+    return closed ? d + "Z" : d;
+  }
+  // rect of an element relative to its slide (one per wrapped line)
+  function rects(node) {
+    const base = node.closest(".slide, .story").getBoundingClientRect();
+    return [...node.getClientRects()].map(r => ({ l: r.left - base.left, r: r.right - base.left, t: r.top - base.top, b: r.bottom - base.top }));
+  }
+  function underline(svg, sel, stroke, seed, opts = {}) {
+    const node = document.querySelector(sel), fs = parseFloat(getComputedStyle(node).fontSize);
+    rects(node).forEach((r, i) => squiggle(svg, r.l + 4, r.r - 4, r.b - (opts.lift ?? fs * .27), stroke, seed + i, Object.assign({ amp: 7, step: 30, w: 7 }, opts)));
+  }
+  function el(svg, tag, attrs) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); svg.appendChild(e); return e; }
+  function blob(svg, cx, cy, r, fill, seed, opts = {}) {
+    const R = rng(seed), n = opts.n || 8, j = opts.j ?? .2, pts = [];
+    for (let i = 0; i < n; i++) { const a = i / n * Math.PI * 2; const rr = r * (1 - j + R() * 2 * j); pts.push([cx + Math.cos(a) * rr * (opts.sx || 1), cy + Math.sin(a) * rr * (opts.sy || 1)]); }
+    return el(svg, "path", { d: smooth(pts, true), fill, opacity: opts.o ?? 1 });
+  }
+  function squiggle(svg, x1, x2, y, stroke, seed, opts = {}) {
+    const R = rng(seed), step = opts.step || 34, amp = opts.amp || 9, pts = [];
+    let up = true;
+    for (let x = x1; x <= x2 + 1; x += step) { pts.push([x, y + (up ? -amp : amp) * (.6 + R() * .5)]); up = !up; }
+    return el(svg, "path", { d: smooth(pts), fill: "none", stroke, "stroke-width": opts.w || 8, "stroke-linecap": "round", "stroke-linejoin": "round" });
+  }
+  function scribbleRing(svg, cx, cy, rx, ry, stroke, seed, w = 7) {
+    const R = rng(seed), pts = [], n = 12;
+    for (let i = 0; i <= n + 2; i++) { const a = -2.4 + i / n * Math.PI * 2; const k = 1 + (R() * 2 - 1) * .05 + i * .012; pts.push([cx + Math.cos(a) * rx * k, cy + Math.sin(a) * ry * k]); }
+    return el(svg, "path", { d: smooth(pts), fill: "none", stroke, "stroke-width": w, "stroke-linecap": "round" });
+  }
+  // the three little "sparkle" dashes from the Aram logo
+  function rays(svg, x, y, rot, size, colors) {
+    const g = el(svg, "g", { transform: `translate(${x},${y}) rotate(${rot}) scale(${size})` });
+    [[-48, -78, -30, -48], [0, -88, 0, -58], [48, -78, 30, -48]].forEach((l, i) =>
+      el(g, "line", { x1: l[0], y1: l[1], x2: l[2], y2: l[3], stroke: colors[i], "stroke-width": 15, "stroke-linecap": "round" }));
+    return g;
+  }
+  // the arms-up figure from the "r" in the Aram logo
+  function person(svg, x, y, s, color, rot, head) {
+    const g = el(svg, "g", { transform: `translate(${x},${y}) rotate(${rot}) scale(${s})` });
+    el(g, "path", { d: "M-36,-34 C-28,-8 -14,8 0,26 M32,-40 C24,-12 12,4 0,26 L-2,58", fill: "none", stroke: color, "stroke-width": 17, "stroke-linecap": "round", "stroke-linejoin": "round" });
+    el(g, "circle", { cx: 0, cy: -62, r: 19, fill: head || C.orange });
+    return g;
+  }
+  function star(svg, x, y, r, fill, rot) {
+    const pts = []; for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5; const rr = i % 2 ? r * .48 : r; pts.push([x + Math.cos(a) * rr, y + Math.sin(a) * rr]); }
+    const d = "M" + pts.map(p => f(p[0]) + "," + f(p[1])).join("L") + "Z";
+    return el(svg, "path", { d, fill, stroke: fill, "stroke-width": r * .3, "stroke-linejoin": "round", transform: `rotate(${rot} ${x} ${y})` });
+  }
+  function arrow(svg, pts, stroke, w = 7) {
+    el(svg, "path", { d: smooth(pts), fill: "none", stroke, "stroke-width": w, "stroke-linecap": "round" });
+    const [a, b] = [pts[pts.length - 2], pts[pts.length - 1]];
+    const ang = Math.atan2(b[1] - a[1], b[0] - a[0]), L = 30;
+    const h = (s) => [b[0] - L * Math.cos(ang + s), b[1] - L * Math.sin(ang + s)];
+    el(svg, "path", { d: `M${f(h(.55)[0])},${f(h(.55)[1])} L${b[0]},${b[1]} L${f(h(-.55)[0])},${f(h(-.55)[1])}`, fill: "none", stroke, "stroke-width": w, "stroke-linecap": "round", "stroke-linejoin": "round" });
+  }
+
+  document.fonts.ready.then(() => {
+  const stories = [...document.querySelectorAll(".story")];
+  const TR = rng(2024), pts = [], dots = [];
+  for (let x = -60, i = 0; x <= stories.length * 1080 + 60; x += 150 + TR() * 60, i++) {
+    const y = 55 + (TR() * 2 - 1) * 30; pts.push([x, y]);
+    if (i % 2 === 1) dots.push([x, y, [C.orange, C.sky, C.pink, C.green][(i >> 1) % 4]]);
+  }
+  const threadD = smooth(pts);
+  stories.forEach((s, i) => {
+    const t = document.createElementNS(NS, "svg");
+    t.setAttribute("class", "thread"); t.setAttribute("viewBox", `${i * 1080} 0 1080 110`);
+    el(t, "path", { d: threadD, fill: "none", stroke: "currentColor", "stroke-width": 6, "stroke-linecap": "round" });
+    dots.forEach(([x, y, c]) => { if (x > i * 1080 - 20 && x < (i + 1) * 1080 + 20) el(t, "circle", { cx: x, cy: y, r: 13, fill: c === C.orange && s.classList.contains("gold") ? C.purple : c }); });
+    s.appendChild(t);
+  });
+
+  // 1
+  (() => {
+    const d = document.getElementById("d1");
+    blob(d, 1060, 200, 260, C.soft, 3, { o: .7 });
+    blob(d, 760, 1290, 320, C.soft, 7, { sx: 1.15 });
+    blob(d, -40, 1700, 180, C.soft, 9, { o: .55 });
+    rays(d, 860, 1170, 18, 1.15, [C.pink, C.sky, C.green]);
+    const w = document.getElementById("confused"), R = rng(41);
+    w.innerHTML = [...w.textContent].map(ch => `<span style="transform: translateY(${f((R() * 2 - 1) * 9)}px) rotate(${f((R() * 2 - 1) * 9)}deg)">${ch}</span>`).join("");
+    underline(d, "#confused", C.muted, 5, { lift: 22 });
+    arrow(d, [[120, 1450], [230, 1500], [380, 1470], [500, 1500]], C.muted, 7);
+  })();
+
+  // 2
+  (() => {
+    const d = document.getElementById("d2");
+    blob(d, 1050, 420, 220, C.lav2, 12);
+    blob(d, 20, 1500, 170, C.lav2, 13);
+    const opts = ["the words we understand?", "what we know of our past?", "where we come from?", "the values we’ve inherited?", "worshipping actors?"];
+    const looks = [[C.purple, C.cream], [C.orange, C.ink], [C.plum, C.cream], ["#ffffff", C.ink], [C.sky, C.ink]];
+    const R = rng(77), box = document.getElementById("opts");
+    opts.forEach((o, i) => {
+      const s = document.createElement("span"); s.className = "opt"; s.textContent = o;
+      s.style.cssText = `background:${looks[i][0]};color:${looks[i][1]};transform:rotate(${f((R() * 2 - 1) * 3.5)}deg);margin-left:${[0, 70, 20, 110, 40][i]}px`;
+      box.appendChild(s);
+    });
+    const h = rects(document.querySelector(".f2 .h"))[0];
+    rays(d, h.r - 40, h.t + 40, 20, .7, [C.orange, C.sky, C.green]);
+    const a = rects(document.querySelector(".f2 .ask"))[0];
+    arrow(d, [[a.l + 640, a.b - 4], [a.l + 700, a.b + 50], [a.l + 690, a.b + 120]], C.plum, 7);
+  })();
+
+  // 3
+  (() => {
+    const d = document.getElementById("d3");
+    blob(d, 1040, 380, 230, "#f6c560", 61);
+    blob(d, 60, 1620, 200, "#f6c560", 62);
+    const sd = rects(document.getElementById("sunday"))[0];
+    scribbleRing(d, (sd.l + sd.r) / 2 + 20, (sd.t + sd.b) / 2 + 14, (sd.r - sd.l) / 2 + 60, (sd.b - sd.t) * .34, C.cream, 84, 8);
+    const sn = rects(document.querySelector(".f3 .sun"))[0];
+    rays(d, sn.r + 30, sn.t + 46, 30, .7, [C.purple, C.cream, C.plum]);
+    star(d, 950, 1250, 30, C.purple, 12); star(d, 140, 1290, 22, C.cream, -8);
+    const a = rects(document.querySelector(".f3 .ask"))[0];
+    arrow(d, [[a.l + 700, a.b - 6], [a.l + 760, a.b + 40], [a.l + 750, a.b + 110]], C.purple, 7);
+  })();
+  window.__ready = true;
+  });
+</script>
+</body>
+</html>

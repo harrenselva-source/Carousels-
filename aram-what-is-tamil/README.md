@@ -19,6 +19,11 @@
 - `carousel.html`: source; edit copy here
 - `render.js`: re-export with `node render.js` (needs Playwright)
 - `aram-carousel.pdf` / `export-pdf.js`: all 8 slides as one PDF (re-export with `node export-pdf.js`)
+- `story/aram-story-1.png` … `aram-story-3.png`: matching Instagram Story frames (1080×1920),
+  `story-preview.png` shows all three; source `story.html`, re-export with `node render-story.js`.
+  Frame 2 leaves room for a Question sticker ("What makes you Tamil?") and frame 3 for a Link sticker
+  (sign-up link), both just above the bottom line. Content stays out of the top 250px and bottom 340px,
+  where Instagram puts its own buttons.
 - `brand/`: Aram Initiative logos (site version, cream version for dark slides, and the original file you sent);
   Debatable wordmark (`debatable-wordmark-cream.png` / `-night.png`, lifted from their ad `debatable-ad.jpg`.
   Swap in an official file for sharper output.)
