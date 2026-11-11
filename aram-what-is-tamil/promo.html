@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Aram Promo Stories</title>
+<style>
+  @font-face { font-family: "Baloo Thambi 2"; src: url(fonts/baloo-thambi2-tamil.woff2) format("woff2"); font-weight: 400 800; unicode-range: U+0964-0965, U+0B82-0BFA, U+200C-200D, U+20B9, U+25CC; }
+  @font-face { font-family: "Baloo Thambi 2"; src: url(fonts/baloo-thambi2-latin.woff2) format("woff2"); font-weight: 400 800; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Poppins"; src: url(fonts/poppins-500.woff2) format("woff2"); font-weight: 400 500; }
+  @font-face { font-family: "Poppins"; src: url(fonts/poppins-600.woff2) format("woff2"); font-weight: 600 800; }
+  @font-face { font-family: "Caveat"; src: url(fonts/caveat.woff2) format("woff2"); font-weight: 400 700; }
+
+  :root {
+    /* colour scheme from aram.org.uk/members; dot colours from the Aram logo */
+    --purple: #1b1230;       /* night: dark slide background */
+    --purple-soft: #2b1f47;  /* panels and blobs on night */
+    --purple-ink: #1b1230;   /* dark text */
+    --plum: #5e3f8c;         /* brand plum: accents on cream */
+    --lav: #faf6ef;          /* warm cream: light slide background */
+    --lav-2: #efeaf7;        /* soft lavender: blobs and pills on cream */
+    --muted: #bfb3d6;        /* muted lavender text on night */
+    --orange: #f2b33d;       /* marigold gold: main accent */
+    --sky: #7db3e1;
+    --pink: #e43172;
+    --green: #29b789;
+    --white: #ffffff;
+    --cream: #faf6ef;
+    --deb: #580612;          /* Debatable maroon, from their poster */
+    --deb-soft: #6f1424;
+
+    --round: "Baloo Thambi 2", "Poppins", system-ui, sans-serif;
+    --body: "Poppins", system-ui, sans-serif;
+    --hand: "Caveat", cursive;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #888; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0; font-family: var(--body); }
+
+
+  .story { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+  .night { background: var(--purple); color: var(--cream); }
+  .cream { background: var(--lav); color: var(--purple-ink); }
+  .gold  { background: var(--orange); color: var(--purple-ink); }
+  .decor { position: absolute; inset: 0; width: 1080px; height: 1920px; z-index: 0; overflow: visible; }
+  .thread { position: absolute; left: 0; top: 1560px; width: 1080px; height: 110px; z-index: 0; overflow: visible; }
+  .night .thread { color: rgba(191,179,214,.55); }
+  .cream .thread { color: var(--plum); }
+  .gold  .thread { color: var(--purple); }
+  /* Instagram covers roughly the top 250px and bottom 340px with its own UI: keep content between */
+  .content { position: absolute; inset: 0; z-index: 1; padding: 270px 90px 0; display: flex; flex-direction: column; align-items: flex-start; }
+  .lockup { display: flex; align-items: center; gap: 18px; }
+  .lockup .logo { height: 100px; }
+  .lockup .x { font-family: var(--round); font-weight: 700; font-size: 36px; opacity: .55; margin-top: 6px; }
+  .lockup .deb { height: 30px; }
+  .debpill { display: inline-flex; align-items: center; background: var(--deb); padding: 13px 18px 11px; border-radius: 22px 16px 24px 14px / 16px 24px 14px 22px; transform: rotate(-3deg); box-shadow: 0 5px 0 rgba(0,0,0,.18); }
+  .debpill img { display: block; }
+  .debbg { background: var(--deb) !important; color: var(--cream); }
+  .debbg .debpill { background: var(--cream); }
+  .debbg .thread { color: rgba(250,246,239,.45); }
+  .kicker { font-family: var(--hand); font-weight: 700; font-size: 72px; line-height: 1; color: var(--plum); transform: rotate(-5deg); transform-origin: left; }
+  .night .kicker { color: var(--orange); }
+  .h { font-family: var(--round); font-weight: 800; font-size: 120px; line-height: 1.0; letter-spacing: -.015em; }
+  .h .hl { color: var(--plum); }
+  .night .h .hl { color: var(--orange); }
+  .hand { font-family: var(--hand); font-weight: 700; }
+
+  .big-n { position: absolute; font-family: var(--round); font-weight: 800; line-height: .8; letter-spacing: -.04em; }
+  .days { position: absolute; font-family: var(--hand); font-weight: 700; font-size: 84px; line-height: 1; transform: rotate(-6deg); }
+  .line { font-family: var(--round); font-weight: 800; line-height: 1.02; letter-spacing: -.01em; }
+  .aside { font-family: var(--hand); font-weight: 700; line-height: 1.05; }
+  .strip { position: absolute; left: 90px; right: 90px; top: 1330px; padding: 26px 32px 22px; display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: center;
+    border-radius: 44px 32px 48px 36px / 36px 48px 32px 44px; transform: rotate(-1.5deg); box-shadow: 0 10px 0 rgba(0,0,0,.18); }
+  .strip .t { font-family: var(--round); font-weight: 800; font-size: 44px; line-height: 1; width: 100%; }
+  .strip b { font-family: var(--body); font-weight: 600; font-size: 30px; line-height: 1; padding: 14px 20px 11px; border-radius: 26px 20px 28px 18px / 20px 28px 18px 26px; }
+  .ask { position: absolute; left: 0; right: 0; top: 1500px; text-align: center; font-family: var(--hand); font-weight: 700; font-size: 54px; transform: rotate(-3deg); }
+
+  /* day 1: night */
+  .d1 .kicker { margin-top: 70px; }
+  .d1 .big-n { left: 400px; top: 500px; font-size: 560px; color: var(--orange); transform: rotate(-5deg); }
+  .d1 .days { left: 690px; top: 870px; color: var(--cream); }
+  .d1 .line { position: absolute; left: 90px; right: 60px; top: 975px; font-size: 70px; }
+  .d1 .line span { color: var(--orange); }
+  .d1 .aside { position: absolute; left: 90px; top: 1065px; font-size: 46px; color: var(--muted); transform: rotate(-2deg); }
+  .d1 .strip { top: 1145px; background: var(--purple-soft); color: var(--cream); }
+  .d1 .strip b { background: var(--purple); }
+  .d1 .strip b.hl { background: var(--orange); color: var(--purple-ink); }
+  .d1 .ask { top: 1345px; color: var(--muted); }
+
+  /* day 2: cream */
+  .d2 .kicker { margin-top: 70px; }
+  .d2 .big-n { right: 80px; top: 380px; font-size: 400px; color: var(--deb); transform: rotate(7deg); }
+  .d2 .days { right: 70px; top: 700px; color: var(--plum); }
+  .d2 .line { position: absolute; left: 90px; right: 330px; top: 560px; font-size: 84px; }
+  .d2 .line .a { color: var(--plum); }
+  .d2 .line .b { color: var(--deb); }
+  .d2 .aside { position: absolute; left: 90px; right: 90px; top: 900px; font-size: 50px; color: var(--purple-ink); }
+  .d2 .aside small { display: block; margin-top: 18px; font-size: 40px; color: #5b5368; }
+  .d2 .ask { top: 1265px; left: 0; right: 0; color: var(--plum); }
+  .d2 .strip { top: 1130px; padding: 20px 26px 16px; background: var(--purple); color: var(--cream); }
+  .d2 .strip b { background: var(--purple-soft); }
+  .d2 .strip b.hl { background: var(--orange); color: var(--purple-ink); }
+
+  /* day 3: maroon */
+  .d3 .kicker { margin-top: 70px; color: var(--orange); }
+  .d3 .big-n { left: 80px; top: 470px; font-size: 196px; color: var(--cream); transform: rotate(-4deg); }
+  .d3 .line { position: absolute; left: 90px; right: 90px; top: 720px; font-size: 96px; color: var(--orange); }
+  .d3 .aside { position: absolute; left: 90px; right: 90px; top: 880px; font-size: 56px; color: var(--cream); }
+  .d3 .aside small { display: block; margin-top: 10px; font-size: 44px; color: #e6c9cc; }
+  .d3 .strip { top: 1110px; background: var(--cream); color: var(--purple-ink); }
+  .d3 .strip .t span { color: var(--deb); }
+  .d3 .strip b { background: var(--lav-2); }
+  .d3 .strip b.hl { background: var(--orange); }
+  .d3 .ask { top: 1340px; color: #e6c9cc; }
+
+  body { background: #888; display: flex; flex-direction: row; align-items: flex-start; gap: 40px; padding: 40px; font-family: var(--body); }
+</style>
+</head>
+<body>
+
+<!-- Day 1 (Thu 12 Nov): 3 days to go, room for a Countdown sticker -->
+<section class="story night d1">
+  <svg class="decor" id="d1"></svg>
+  <div class="content">
+    <div class="lockup"><img class="logo" src="brand/aram-logo-cream.png" alt="Aram Initiative"><span class="x">×</span><span class="debpill"><img class="deb" src="brand/debatable-wordmark-cream.png" alt="Debatable"></span></div>
+    <div class="kicker">The countdown is on…</div>
+  </div>
+  <div class="big-n" id="n1">3</div>
+  <div class="days">days to go</div>
+  <div class="line" style="z-index:1">3 days to practise saying <span>ழ</span>.</div>
+  <div class="aside" style="z-index:1">(or just come and be confused with us)</div>
+  <div class="strip" style="z-index:1"><span class="t">Tamil Identity Workshop</span><b class="hl">Sun 15 November</b><b class="hl">1:00 PM</b><b>Sugar &amp; Spice Lounge</b></div>
+  <div class="ask" style="z-index:1">tap below to get reminded</div>
+</section>
+
+<!-- Day 2 (Fri 13 Nov): 2 days to go, room for a Poll sticker -->
+<section class="story cream d2">
+  <svg class="decor" id="d2"></svg>
+  <div class="content">
+    <div class="lockup"><img class="logo" src="brand/aram-logo.png" alt="Aram Initiative"><span class="x">×</span><span class="debpill"><img class="deb" src="brand/debatable-wordmark-cream.png" alt="Debatable"></span></div>
+    <div class="kicker">2 days to go. Quick poll…</div>
+  </div>
+  <div class="big-n">2</div>
+  <div class="days">days!</div>
+  <div class="line" style="z-index:1"><span class="a">Sri Lankan Tamil</span> or <span class="b" id="eelam">Eelam Tamil?</span></div>
+  <div class="aside" style="z-index:1">Vote below. Then come and argue about it on Sunday.<small>(“It’s complicated” is a valid answer. That’s the whole workshop.)</small></div>
+  <div class="ask" style="z-index:1">vote here</div>
+  <div class="strip" style="z-index:1"><span class="t" style="font-size:38px">Tamil Identity Workshop</span><b class="hl">Sun 15 November</b><b class="hl">1:00 PM</b><b>Sugar &amp; Spice Lounge</b></div>
+</section>
+
+<!-- Day 3 (Sat 14 Nov): tomorrow, room for a Link sticker -->
+<section class="story night debbg d3">
+  <svg class="decor" id="d3"></svg>
+  <div class="content">
+    <div class="lockup"><img class="logo" src="brand/aram-logo-cream.png" alt="Aram Initiative"><span class="x">×</span><span class="debpill"><img class="deb" src="brand/debatable-wordmark-maroon.png" alt="Debatable"></span></div>
+    <div class="kicker">Last call!</div>
+  </div>
+  <div class="big-n" id="tmrw">Tomorrow.</div>
+  <div class="line" style="z-index:1">1:00 PM. Be there.</div>
+  <div class="aside" style="z-index:1">Bring your identity crisis. Bring a friend.<small>Bring Amma, if she’s free. (She won’t be. There’s a wedding.)</small></div>
+  <div class="strip" style="z-index:1"><span class="t">Tamil Identity <span>Workshop</span></span><b class="hl">Sun 15 November</b><b class="hl">1:00 PM</b><b>Sugar &amp; Spice Lounge</b></div>
+  <div class="ask" style="z-index:1">grab your spot below</div>
+</section>
+
+<script>
+  const NS = "http://www.w3.org/2000/svg";
+  const C = { purple: "#1b1230", soft: "#2b1f47", ink: "#1b1230", lav: "#faf6ef", lav2: "#efeaf7",
+              plum: "#5e3f8c", muted: "#bfb3d6", cream: "#faf6ef",
+              orange: "#f2b33d", sky: "#7db3e1", pink: "#e43172", green: "#29b789", white: "#faf6ef", deb: "#580612", debSoft: "#6f1424" };
+
+  // ---------- helpers: everything hand-made, nothing ruler-straight ----------
+  function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  const f = (n) => n.toFixed(1);
+  function smooth(pts, closed) {             // Catmull-Rom through points -> cubic Béziers
+    const n = pts.length, get = (i) => closed ? pts[(i + n) % n] : pts[Math.max(0, Math.min(n - 1, i))];
+    let d = `M${f(pts[0][0])},${f(pts[0][1])}`;
+    for (let i = 0; i < (closed ? n : n - 1); i++) {
+      const p0 = get(i - 1), p1 = get(i), p2 = get(i + 1), p3 = get(i + 2);
+      d += `C${f(p1[0] + (p2[0] - p0[0]) / 6)},${f(p1[1] + (p2[1] - p0[1]) / 6)} ${f(p2[0] - (p3[0] - p1[0]) / 6)},${f(p2[1] - (p3[1] - p1[1]) / 6)} ${f(p2[0])},${f(p2[1])}`;
+    }
+    return closed ? d + "Z" : d;
+  }
+  // rect of an element relative to its slide (one per wrapped line)
+  function rects(node) {
+    const base = node.closest(".slide, .story").getBoundingClientRect();
+    return [...node.getClientRects()].map(r => ({ l: r.left - base.left, r: r.right - base.left, t: r.top - base.top, b: r.bottom - base.top }));
+  }
+  function underline(svg, sel, stroke, seed, opts = {}) {
+    const node = document.querySelector(sel), fs = parseFloat(getComputedStyle(node).fontSize);
+    rects(node).forEach((r, i) => squiggle(svg, r.l + 4, r.r - 4, r.b - (opts.lift ?? fs * .27), stroke, seed + i, Object.assign({ amp: 7, step: 30, w: 7 }, opts)));
+  }
+  function el(svg, tag, attrs) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); svg.appendChild(e); return e; }
+  function blob(svg, cx, cy, r, fill, seed, opts = {}) {
+    const R = rng(seed), n = opts.n || 8, j = opts.j ?? .2, pts = [];
+    for (let i = 0; i < n; i++) { const a = i / n * Math.PI * 2; const rr = r * (1 - j + R() * 2 * j); pts.push([cx + Math.cos(a) * rr * (opts.sx || 1), cy + Math.sin(a) * rr * (opts.sy || 1)]); }
+    return el(svg, "path", { d: smooth(pts, true), fill, opacity: opts.o ?? 1 });
+  }
+  function squiggle(svg, x1, x2, y, stroke, seed, opts = {}) {
+    const R = rng(seed), step = opts.step || 34, amp = opts.amp || 9, pts = [];
+    let up = true;
+    for (let x = x1; x <= x2 + 1; x += step) { pts.push([x, y + (up ? -amp : amp) * (.6 + R() * .5)]); up = !up; }
+    return el(svg, "path", { d: smooth(pts), fill: "none", stroke, "stroke-width": opts.w || 8, "stroke-linecap": "round", "stroke-linejoin": "round" });
+  }
+  function scribbleRing(svg, cx, cy, rx, ry, stroke, seed, w = 7) {
+    const R = rng(seed), pts = [], n = 12;
+    for (let i = 0; i <= n + 2; i++) { const a = -2.4 + i / n * Math.PI * 2; const k = 1 + (R() * 2 - 1) * .05 + i * .012; pts.push([cx + Math.cos(a) * rx * k, cy + Math.sin(a) * ry * k]); }
+    return el(svg, "path", { d: smooth(pts), fill: "none", stroke, "stroke-width": w, "stroke-linecap": "round" });
+  }
+  // the three little "sparkle" dashes from the Aram logo
+  function rays(svg, x, y, rot, size, colors) {
+    const g = el(svg, "g", { transform: `translate(${x},${y}) rotate(${rot}) scale(${size})` });
+    [[-48, -78, -30, -48], [0, -88, 0, -58], [48, -78, 30, -48]].forEach((l, i) =>
+      el(g, "line", { x1: l[0], y1: l[1], x2: l[2], y2: l[3], stroke: colors[i], "stroke-width": 15, "stroke-linecap": "round" }));
+    return g;
+  }
+  // the arms-up figure from the "r" in the Aram logo
+  function person(svg, x, y, s, color, rot, head) {
+    const g = el(svg, "g", { transform: `translate(${x},${y}) rotate(${rot}) scale(${s})` });
+    el(g, "path", { d: "M-36,-34 C-28,-8 -14,8 0,26 M32,-40 C24,-12 12,4 0,26 L-2,58", fill: "none", stroke: color, "stroke-width": 17, "stroke-linecap": "round", "stroke-linejoin": "round" });
+    el(g, "circle", { cx: 0, cy: -62, r: 19, fill: head || C.orange });
+    return g;
+  }
+  function star(svg, x, y, r, fill, rot) {
+    const pts = []; for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5; const rr = i % 2 ? r * .48 : r; pts.push([x + Math.cos(a) * rr, y + Math.sin(a) * rr]); }
+    const d = "M" + pts.map(p => f(p[0]) + "," + f(p[1])).join("L") + "Z";
+    return el(svg, "path", { d, fill, stroke: fill, "stroke-width": r * .3, "stroke-linejoin": "round", transform: `rotate(${rot} ${x} ${y})` });
+  }
+  function arrow(svg, pts, stroke, w = 7) {
+    el(svg, "path", { d: smooth(pts), fill: "none", stroke, "stroke-width": w, "stroke-linecap": "round" });
+    const [a, b] = [pts[pts.length - 2], pts[pts.length - 1]];
+    const ang = Math.atan2(b[1] - a[1], b[0] - a[0]), L = 30;
+    const h = (s) => [b[0] - L * Math.cos(ang + s), b[1] - L * Math.sin(ang + s)];
+    el(svg, "path", { d: `M${f(h(.55)[0])},${f(h(.55)[1])} L${b[0]},${b[1]} L${f(h(-.55)[0])},${f(h(-.55)[1])}`, fill: "none", stroke, "stroke-width": w, "stroke-linecap": "round", "stroke-linejoin": "round" });
+  }
+
+
+  document.fonts.ready.then(() => {
+  const stories = [...document.querySelectorAll(".story")];
+  const TR = rng(2025), pts = [], dots = [];
+  for (let x = -60, i = 0; x <= stories.length * 1080 + 60; x += 150 + TR() * 60, i++) {
+    const y = 55 + (TR() * 2 - 1) * 30; pts.push([x, y]);
+    if (i % 2 === 1) dots.push([x, y, [C.orange, C.sky, C.pink, C.green][(i >> 1) % 4]]);
+  }
+  const threadD = smooth(pts);
+  stories.forEach((s, i) => {
+    const t = document.createElementNS(NS, "svg");
+    t.setAttribute("class", "thread"); t.setAttribute("viewBox", `${i * 1080} 0 1080 110`);
+    t.style.top = "1640px";
+    el(t, "path", { d: threadD, fill: "none", stroke: "currentColor", "stroke-width": 6, "stroke-linecap": "round" });
+    dots.forEach(([x, y, c]) => { if (x > i * 1080 - 20 && x < (i + 1) * 1080 + 20) el(t, "circle", { cx: x, cy: y, r: 13, fill: c }); });
+    s.appendChild(t);
+  });
+
+  // day 1
+  (() => {
+    const d = document.getElementById("d1");
+    blob(d, 640, 640, 330, C.soft, 7, { sx: 1.15 });
+    blob(d, 1060, 180, 240, C.soft, 3, { o: .7 });
+    const n = rects(document.getElementById("n1"))[0];
+    rays(d, n.r + 10, n.t + 150, 24, 1.1, [C.pink, C.sky, C.green]);
+    const a = rects(document.querySelector(".d1 .ask"))[0];
+    arrow(d, [[a.l + 640, a.b - 4], [a.l + 700, a.b + 40], [a.l + 690, a.b + 90]], C.muted, 7);
+  })();
+
+  // day 2
+  (() => {
+    const d = document.getElementById("d2");
+    blob(d, 860, 470, 270, C.lav2, 12);
+    blob(d, 20, 1500, 170, C.lav2, 13);
+    underline(d, "#eelam", C.orange, 21);
+        const a = rects(document.querySelector(".d2 .ask"))[0];
+    arrow(d, [[a.l + 600, a.b - 4], [a.l + 660, a.b + 40], [a.l + 650, a.b + 90]], C.plum, 7);
+  })();
+
+  // day 3
+  (() => {
+    const d = document.getElementById("d3");
+    blob(d, 1040, 380, 240, C.debSoft, 61);
+    blob(d, 60, 1700, 210, C.debSoft, 62);
+    const t = rects(document.getElementById("tmrw"))[0];
+    underline(d, "#tmrw", C.orange, 63, { lift: 30 });
+    rays(d, t.r - 30, t.t + 50, 26, .9, [C.orange, C.cream, C.pink]);
+    star(d, 960, 1500, 30, C.orange, 12); star(d, 130, 1520, 22, C.cream, -8);
+    const a = rects(document.querySelector(".d3 .ask"))[0];
+    arrow(d, [[a.l + 660, a.b - 6], [a.l + 720, a.b + 40], [a.l + 712, a.b + 90]], "#e6c9cc", 7);
+  })();
+  window.__ready = true;
+  });
+
+</script>
+</body>
+</html>

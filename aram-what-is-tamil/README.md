@@ -26,6 +26,10 @@
   crisis. We'll bring the debate.") has the workshop details and room for a Link sticker
   (sign-up link), both just above the bottom line. Content stays out of the top 250px and bottom 340px,
   where Instagram puts its own buttons.
+- `story/aram-promo-day-1.png` … `-3.png`: 3-day countdown Stories (`promo-preview.png`; source
+  `promo.html`, re-export with `node render-story.js promo`). Post Thu 12, Fri 13 and Sat 14 Nov:
+  day 1 "3 days to go" (add a Countdown sticker to Sun 15 Nov, 1 PM), day 2 "Sri Lankan Tamil or Eelam
+  Tamil?" (add a Poll sticker), day 3 "Tomorrow." (add the Link sticker).
 - `brand/`: Aram Initiative logos (site version, cream version for dark slides, and the original file you sent);
   Debatable wordmark (`debatable-wordmark-cream.png` / `-night.png`, lifted from their ad `debatable-ad.jpg`.
   Swap in an official file for sharper output.)
